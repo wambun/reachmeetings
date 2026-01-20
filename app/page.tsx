@@ -10,36 +10,20 @@ import {
   Calendar,
   CheckCircle,
   Quote,
-  Sparkles,
+  Zap,
+  Building2,
+  Crown,
 } from 'lucide-react';
 import Header from '@/components/shared/Header';
 import Footer from '@/components/shared/Footer';
 import { services } from '@/data/services';
 import { team } from '@/data/team';
-import { FloatingShapes } from '@/components/shared/ui/FloatingShapes';
-import { PremiumButton, ArrowIcon } from '@/components/shared/ui/PremiumButton';
-import {
-  AnimatedSection,
-  AnimatedItem,
-  AnimatedCounter,
-} from '@/components/shared/ui/AnimatedSection';
-import {
-  fadeInUp,
-  fadeInLeft,
-  fadeInRight,
-  scaleIn,
-  heroTextReveal,
-  staggerContainer,
-  staggerContainerFast,
-  cardHover,
-  springs,
-} from '@/lib/animations';
 
 const stats = [
-  { value: 20, suffix: '+', label: 'Years of Experience' },
-  { value: 500, suffix: '+', label: 'Events Managed' },
-  { value: 50, suffix: '+', label: 'Global Destinations' },
-  { value: 100, suffix: '%', label: 'Client Satisfaction' },
+  { value: '20+', label: 'Years of Experience' },
+  { value: '500+', label: 'Events Managed' },
+  { value: '50+', label: 'Global Destinations' },
+  { value: '100%', label: 'Client Satisfaction' },
 ];
 
 const testimonials = [
@@ -59,6 +43,19 @@ const testimonials = [
   },
 ];
 
+const fadeIn = {
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+};
+
+const stagger = {
+  animate: {
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
 export default function Home() {
   return (
     <>
@@ -66,41 +63,36 @@ export default function Home() {
 
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
-          {/* Premium mesh gradient background */}
-          <div className="absolute inset-0 bg-mesh-gradient" />
-
-          {/* Floating animated shapes */}
-          <FloatingShapes variant="hero" />
-
-          <div className="relative mx-auto max-w-[1600px] px-6 sm:px-8 lg:px-12 py-24 lg:py-32">
+        <section className="relative min-h-screen flex items-center pt-20 bg-off-white">
+          <div className="relative mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12 py-24 lg:py-32">
             <motion.div
               initial="initial"
               animate="animate"
-              variants={staggerContainer}
-              className="max-w-4xl"
+              variants={stagger}
+              className="max-w-3xl"
             >
-              {/* Leading pill */}
               <motion.div
-                variants={fadeInUp}
-                className="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-full bg-white/80 backdrop-blur-sm border border-gray-200/50 shadow-sm"
+                variants={fadeIn}
+                transition={{ duration: 0.5 }}
+                className="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-full bg-white border border-gray-200/60"
               >
-                <Sparkles className="h-4 w-4 text-gold" />
-                <span className="text-sm font-medium text-gray-700 tracking-wide">
+                <span className="text-sm font-medium text-gray-600">
                   Event Management Experts
                 </span>
               </motion.div>
 
               <motion.h1
-                variants={heroTextReveal}
-                className="heading-xl mb-6"
+                variants={fadeIn}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className="heading-display text-charcoal mb-6"
               >
                 Bring people together.{' '}
-                <span className="gradient-text-premium">Change the world.</span>
+                <span className="text-[#415371]">Change the world.</span>
               </motion.h1>
 
               <motion.p
-                variants={fadeInUp}
+                variants={fadeIn}
+                transition={{ duration: 0.5, delay: 0.2 }}
                 className="text-body-lg max-w-2xl"
               >
                 Full-service event management expertise with venue sourcing,
@@ -109,379 +101,424 @@ export default function Home() {
               </motion.p>
 
               <motion.div
-                variants={fadeInUp}
+                variants={fadeIn}
+                transition={{ duration: 0.5, delay: 0.3 }}
                 className="mt-10 flex flex-col sm:flex-row gap-4"
               >
-                <Link href="/contact">
-                  <PremiumButton variant="gold" size="lg" icon={<ArrowIcon />}>
-                    Get Started
-                  </PremiumButton>
+                <Link href="/contact" className="btn-primary">
+                  Get Started
+                  <ArrowRight className="h-4 w-4" />
                 </Link>
-                <Link href="/services">
-                  <PremiumButton variant="outline" size="lg">
-                    Explore Services
-                  </PremiumButton>
+                <Link href="/services" className="btn-outline">
+                  Explore Services
                 </Link>
               </motion.div>
             </motion.div>
           </div>
         </section>
 
-        {/* Stats Section */}
-        <section className="relative py-24 lg:py-32 bg-warm-50">
-          <FloatingShapes variant="subtle" />
-
-          <div className="relative mx-auto max-w-[1600px] px-6 sm:px-8 lg:px-12">
-            <AnimatedSection animation="up" className="text-center mb-16">
-              <p className="text-label text-primary-600 mb-2">
-                Trusted by Leaders
-              </p>
-              <h2 className="heading-lg">
-                Industry-leading{' '}
-                <span className="gradient-text-gold">expertise</span>
-              </h2>
-            </AnimatedSection>
-
-            <AnimatedSection stagger staggerSpeed="fast" className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-              {stats.map((stat) => (
-                <AnimatedItem key={stat.label} animation="scale">
-                  <div className="text-center p-6 rounded-2xl glass hover:shadow-premium transition-all duration-300">
-                    <p className="text-4xl sm:text-5xl font-bold text-primary-600">
-                      <AnimatedCounter value={stat.value} suffix={stat.suffix} />
+        {/* Stats Section - Vectura 4-card style */}
+        <section className="py-20 lg:py-28 bg-white">
+          <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+              {stats.map((stat, index) => {
+                const cardStyles = [
+                  'card-light',
+                  'card-white border border-gray-100',
+                  'card-slate',
+                  'card-beige',
+                ];
+                const isSlate = index === 2;
+                return (
+                  <motion.div
+                    key={stat.label}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    className={`${cardStyles[index]} flex flex-col justify-between min-h-[180px]`}
+                  >
+                    <p className={`text-4xl lg:text-5xl font-semibold tracking-tight ${isSlate ? 'text-white' : 'text-charcoal'}`}>
+                      {stat.value}
                     </p>
-                    <div className="w-12 h-0.5 mx-auto mt-3 mb-2 bg-gradient-to-r from-gold-dark via-gold to-gold-light rounded-full" />
-                    <p className="text-sm text-gray-600 font-medium">{stat.label}</p>
-                  </div>
-                </AnimatedItem>
-              ))}
-            </AnimatedSection>
+                    <p className={`text-sm ${isSlate ? 'text-white/80' : 'text-gray-600'}`}>
+                      {stat.label}
+                    </p>
+                  </motion.div>
+                );
+              })}
+            </div>
           </div>
         </section>
 
         {/* Services Section */}
-        <section className="relative py-24 lg:py-32 bg-white overflow-hidden">
-          <FloatingShapes variant="section" />
-
-          <div className="relative mx-auto max-w-[1600px] px-6 sm:px-8 lg:px-12">
-            <AnimatedSection animation="up" className="max-w-2xl mb-16">
-              <p className="text-label text-primary-600 mb-2">
+        <section className="py-20 lg:py-28 bg-off-white">
+          <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
+            <div className="max-w-2xl mb-16">
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="text-label text-[#415371] mb-3"
+              >
                 What We Do
-              </p>
-              <h2 className="heading-lg mb-4">
-                Everything your event needs —{' '}
-                <span className="gradient-text-premium">concept to execution</span>
-              </h2>
-              <p className="text-body text-gray-600">
+              </motion.p>
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+                className="heading-lg mb-4"
+              >
+                Everything your event needs
+              </motion.h2>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+                className="text-body"
+              >
                 We take the friction out of event planning — no spreadsheets, no
-                confusion, no busywork. Manage every detail in partnership with
-                experts who care.
-              </p>
-            </AnimatedSection>
+                confusion, no busywork.
+              </motion.p>
+            </div>
 
-            <AnimatedSection stagger staggerSpeed="normal" className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {services.slice(0, 6).map((service) => (
-                <AnimatedItem key={service.slug} animation="up">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
+              {services.slice(0, 6).map((service, index) => (
+                <motion.div
+                  key={service.slug}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                >
                   <Link href={`/services/${service.slug}`}>
-                    <motion.div
-                      className="group card-premium p-6"
-                      variants={cardHover}
-                      initial="initial"
-                      whileHover="hover"
-                      transition={springs.snappy}
-                    >
-                      <div className="flex items-center gap-4 mb-4">
-                        <div className="p-3 rounded-xl bg-gradient-to-br from-primary-50 to-primary-100 text-primary-600 group-hover:from-primary-100 group-hover:to-primary-200 transition-all duration-300 group-hover:shadow-glow-primary">
-                          <service.icon className="h-6 w-6" />
-                        </div>
-                        <h3 className="text-lg font-semibold tracking-tight text-gray-900 group-hover:text-primary-600 transition-colors">
-                          {service.title}
-                        </h3>
+                    <div className="group card-white h-full card-hover">
+                      <div className="icon-box-light mb-4 group-hover:bg-[#415371] group-hover:text-white transition-colors duration-300">
+                        <service.icon className="h-5 w-5" />
                       </div>
+                      <h3 className="text-lg font-semibold text-charcoal mb-2 group-hover:text-[#415371] transition-colors">
+                        {service.title}
+                      </h3>
                       <p className="text-sm text-gray-600 leading-relaxed">
                         {service.shortDescription}
                       </p>
-                      <div className="mt-4 flex items-center gap-2 text-primary-600 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+                      <div className="mt-4 flex items-center gap-1 text-[#415371] text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
                         Learn more
-                        <ArrowRight className="h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
+                        <ArrowRight className="h-4 w-4" />
                       </div>
-                    </motion.div>
+                    </div>
                   </Link>
-                </AnimatedItem>
+                </motion.div>
               ))}
-            </AnimatedSection>
+            </div>
 
-            <AnimatedSection animation="up" className="mt-12 text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="mt-12 text-center"
+            >
               <Link
                 href="/services"
-                className="inline-flex items-center gap-2 text-primary-600 hover:text-primary-700 font-medium transition-colors group"
+                className="inline-flex items-center gap-2 text-[#415371] hover:text-[#334159] font-medium transition-colors"
               >
                 View all services
-                <ArrowRight className="h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="h-4 w-4" />
               </Link>
-            </AnimatedSection>
+            </motion.div>
           </div>
         </section>
 
-        {/* Why Choose Us Section */}
-        <section className="relative py-24 lg:py-32 bg-warm-50 overflow-hidden">
-          <FloatingShapes variant="section" />
-
-          <div className="relative mx-auto max-w-[1600px] px-6 sm:px-8 lg:px-12">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
-              <AnimatedSection animation="left">
-                <p className="text-label text-primary-600 mb-2">
+        {/* Why Choose Us Section - Vectura style */}
+        <section className="py-20 lg:py-28 bg-white">
+          <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
+            <div className="grid lg:grid-cols-2 gap-16 items-start">
+              <div>
+                <motion.p
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  className="text-label text-[#415371] mb-3"
+                >
                   Why Choose REACH
-                </p>
-                <h2 className="heading-lg mb-6">
-                  Built for real-world{' '}
-                  <span className="gradient-text-gold">event success</span>
-                </h2>
-                <p className="text-body text-gray-600 mb-8">
+                </motion.p>
+                <motion.h2
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.1 }}
+                  className="heading-lg mb-6"
+                >
+                  Built for real-world event success
+                </motion.h2>
+                <motion.p
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.2 }}
+                  className="text-body mb-8"
+                >
                   Founded in 2020 by a Fortune 500 consulting and training
                   expert and a meetings industry veteran with deep experience in
-                  global meetings management. We bring decades of expertise to
-                  every event.
-                </p>
+                  global meetings management.
+                </motion.p>
 
-                <AnimatedSection stagger staggerSpeed="fast" className="space-y-4">
+                <div className="space-y-4">
                   {[
                     'Consultative, collaborative approach',
                     'Global network of trusted partners',
                     'Fully licensed travel agency',
                     'White-glove service for every client',
-                  ].map((item) => (
-                    <AnimatedItem key={item} animation="left">
-                      <div className="flex items-center gap-3 text-gray-700">
-                        <div className="p-1 rounded-full bg-gradient-to-br from-primary-100 to-primary-200">
-                          <CheckCircle className="h-5 w-5 text-primary-600" />
-                        </div>
-                        <span className="font-medium">{item}</span>
+                  ].map((item, index) => (
+                    <motion.div
+                      key={item}
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.3 + index * 0.1 }}
+                      className="flex items-center gap-3"
+                    >
+                      <div className="w-5 h-5 rounded-full bg-[#415371] flex items-center justify-center flex-shrink-0">
+                        <CheckCircle className="h-3 w-3 text-white" />
                       </div>
-                    </AnimatedItem>
+                      <span className="text-gray-700 font-medium">{item}</span>
+                    </motion.div>
                   ))}
-                </AnimatedSection>
-
-                <div className="mt-10">
-                  <Link href="/about">
-                    <PremiumButton variant="primary" size="lg" icon={<ArrowIcon />}>
-                      Learn More About Us
-                    </PremiumButton>
-                  </Link>
                 </div>
-              </AnimatedSection>
 
-              <AnimatedSection stagger staggerSpeed="normal" className="grid grid-cols-2 gap-4">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.7 }}
+                  className="mt-10"
+                >
+                  <Link href="/about" className="btn-primary">
+                    Learn More About Us
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </motion.div>
+              </div>
+
+              {/* Vectura-style feature cards */}
+              <div className="grid grid-cols-2 gap-4">
                 {[
                   {
                     icon: Users,
                     title: 'Expert Team',
                     description: 'Seasoned professionals dedicated to your success',
+                    style: 'card-light',
                   },
                   {
                     icon: Globe,
                     title: 'Global Reach',
                     description: 'Partners on several continents worldwide',
+                    style: 'card-white border border-gray-100',
                   },
                   {
-                    icon: Award,
+                    icon: Crown,
                     title: 'Accredited',
                     description: 'IATAN and ASTA certified agency',
+                    style: 'card-slate',
                   },
                   {
-                    icon: Calendar,
+                    icon: Zap,
                     title: 'Full Service',
                     description: 'End-to-end event management',
+                    style: 'card-beige',
                   },
-                ].map((item) => (
-                  <AnimatedItem key={item.title} animation="scale">
+                ].map((item, index) => {
+                  const isSlate = index === 2;
+                  return (
                     <motion.div
-                      className="p-6 rounded-2xl glass group hover:shadow-premium-lg transition-all duration-300"
-                      variants={cardHover}
-                      initial="initial"
-                      whileHover="hover"
-                      transition={springs.snappy}
+                      key={item.title}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.15 }}
+                      className={`${item.style} flex flex-col min-h-[200px]`}
                     >
-                      <div className="p-2 rounded-lg bg-gradient-to-br from-primary-100 to-secondary-100 w-fit mb-4 group-hover:shadow-glow-primary transition-shadow duration-300">
-                        <item.icon className="h-8 w-8 text-primary-600" />
+                      <div className={`icon-box mb-auto ${isSlate ? 'bg-white text-[#415371]' : 'bg-white text-charcoal shadow-soft'}`}>
+                        <item.icon className="h-5 w-5" />
                       </div>
-                      <h3 className="text-lg font-semibold tracking-tight text-gray-900 mb-2">
-                        {item.title}
-                      </h3>
-                      <p className="text-sm text-gray-600">{item.description}</p>
+                      <p className={`text-sm leading-relaxed ${isSlate ? 'text-white/90' : 'text-gray-600'}`}>
+                        {item.description}
+                      </p>
                     </motion.div>
-                  </AnimatedItem>
-                ))}
-              </AnimatedSection>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </section>
 
         {/* Team Preview Section */}
-        <section className="relative py-24 lg:py-32 bg-white overflow-hidden">
-          <FloatingShapes variant="subtle" />
-
-          <div className="relative mx-auto max-w-[1600px] px-6 sm:px-8 lg:px-12">
-            <AnimatedSection animation="up" className="text-center mb-16">
-              <p className="text-label text-primary-600 mb-2">
+        <section className="py-20 lg:py-28 bg-off-white">
+          <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
+            <div className="text-center mb-16">
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="text-label text-[#415371] mb-3"
+              >
                 Our Team
-              </p>
-              <h2 className="heading-lg mb-4">
-                Meet the <span className="gradient-text-premium">experts</span> behind REACH
-              </h2>
-              <p className="text-body text-gray-600 max-w-2xl mx-auto">
-                Our success starts with our people — a team grounded in
-                expertise, passion, and dedication to creating unforgettable
-                events.
-              </p>
-            </AnimatedSection>
+              </motion.p>
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+                className="heading-lg mb-4"
+              >
+                Meet the experts behind REACH
+              </motion.h2>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+                className="text-body max-w-2xl mx-auto"
+              >
+                A team grounded in expertise, passion, and dedication to
+                creating unforgettable events.
+              </motion.p>
+            </div>
 
-            <AnimatedSection stagger staggerSpeed="fast" className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6">
-              {team.slice(0, 6).map((member) => (
-                <AnimatedItem key={member.slug} animation="scale">
-                  <motion.div
-                    className="text-center group cursor-pointer"
-                    whileHover={{ y: -4 }}
-                    transition={springs.snappy}
-                  >
-                    <div className="aspect-square rounded-2xl bg-gradient-to-br from-primary-50 to-secondary-50 mb-4 overflow-hidden relative group-hover:shadow-premium transition-shadow duration-300">
-                      <div className="w-full h-full flex items-center justify-center">
-                        <span className="text-5xl font-bold gradient-text-premium opacity-30 group-hover:opacity-50 transition-opacity">
-                          {member.name.charAt(0)}
-                        </span>
-                      </div>
-                      {/* Hover overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-primary-600/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4">
-                        <span className="text-white text-sm font-medium">View Profile</span>
-                      </div>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 lg:gap-6">
+              {team.slice(0, 6).map((member, index) => (
+                <motion.div
+                  key={member.slug}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="text-center group"
+                >
+                  <div className="aspect-square rounded-2xl bg-[#f2ece8] mb-4 flex items-center justify-center relative overflow-hidden">
+                    <span className="text-4xl font-semibold text-[#715441]/30">
+                      {member.name.charAt(0)}
+                    </span>
+                    <div className="absolute inset-0 bg-[#415371] opacity-0 group-hover:opacity-90 transition-opacity duration-300 flex items-center justify-center">
+                      <span className="text-white text-sm font-medium">View Profile</span>
                     </div>
-                    <h3 className="text-sm font-semibold text-gray-900 group-hover:text-primary-600 transition-colors tracking-tight">
-                      {member.name}
-                    </h3>
-                    <p className="text-xs text-gray-500 mt-1">{member.role}</p>
-                  </motion.div>
-                </AnimatedItem>
+                  </div>
+                  <h3 className="text-sm font-semibold text-charcoal">
+                    {member.name}
+                  </h3>
+                  <p className="text-xs text-gray-500 mt-1">{member.role}</p>
+                </motion.div>
               ))}
-            </AnimatedSection>
+            </div>
 
-            <AnimatedSection animation="up" className="mt-12 text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="mt-12 text-center"
+            >
               <Link
                 href="/about#team"
-                className="inline-flex items-center gap-2 text-primary-600 hover:text-primary-700 font-medium transition-colors group"
+                className="inline-flex items-center gap-2 text-[#415371] hover:text-[#334159] font-medium transition-colors"
               >
                 Meet the full team
-                <ArrowRight className="h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="h-4 w-4" />
               </Link>
-            </AnimatedSection>
+            </motion.div>
           </div>
         </section>
 
         {/* Testimonials Section */}
-        <section className="relative py-24 lg:py-32 bg-warm-50 overflow-hidden">
-          <FloatingShapes variant="section" />
-
-          <div className="relative mx-auto max-w-[1600px] px-6 sm:px-8 lg:px-12">
-            <AnimatedSection animation="up" className="text-center mb-16">
-              <p className="text-label text-primary-600 mb-2">
+        <section className="py-20 lg:py-28 bg-white">
+          <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
+            <div className="text-center mb-16">
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="text-label text-[#415371] mb-3"
+              >
                 Testimonials
-              </p>
-              <h2 className="heading-lg">
-                What our <span className="gradient-text-gold">clients</span> say
-              </h2>
-            </AnimatedSection>
+              </motion.p>
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+                className="heading-lg"
+              >
+                What our clients say
+              </motion.h2>
+            </div>
 
-            <AnimatedSection stagger staggerSpeed="normal" className="grid md:grid-cols-2 gap-8">
-              {testimonials.map((testimonial) => (
-                <AnimatedItem key={testimonial.author} animation="up">
-                  <motion.div
-                    className="relative p-8 rounded-3xl glass group hover:shadow-premium-lg transition-all duration-300"
-                    variants={cardHover}
-                    initial="initial"
-                    whileHover="hover"
-                    transition={springs.snappy}
-                  >
-                    {/* Gold quote icon */}
-                    <div className="absolute -top-3 -left-3 p-2 rounded-full bg-gradient-to-br from-gold-dark via-gold to-gold-light shadow-glow-gold">
-                      <Quote className="h-5 w-5 text-white" />
+            <div className="grid md:grid-cols-2 gap-6">
+              {testimonials.map((testimonial, index) => (
+                <motion.div
+                  key={testimonial.author}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.15 }}
+                  className="card-light relative"
+                >
+                  <div className="absolute top-6 right-6">
+                    <Quote className="h-8 w-8 text-[#415371]/20" />
+                  </div>
+                  <blockquote className="text-lg text-gray-700 leading-relaxed mb-6 pr-12">
+                    &ldquo;{testimonial.quote}&rdquo;
+                  </blockquote>
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-full bg-[#415371] flex items-center justify-center">
+                      <span className="text-lg font-semibold text-white">
+                        {testimonial.author.charAt(0)}
+                      </span>
                     </div>
-
-                    <blockquote className="text-lg text-gray-700 leading-relaxed mb-6 italic">
-                      &ldquo;{testimonial.quote}&rdquo;
-                    </blockquote>
-
-                    <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary-100 to-secondary-100 flex items-center justify-center">
-                        <span className="text-lg font-bold text-primary-600">
-                          {testimonial.author.charAt(0)}
-                        </span>
-                      </div>
-                      <div>
-                        <p className="text-gray-900 font-semibold tracking-tight">
-                          {testimonial.author}
-                        </p>
-                        <p className="text-sm text-gray-500">
-                          {testimonial.role}, {testimonial.company}
-                        </p>
-                      </div>
+                    <div>
+                      <p className="text-charcoal font-semibold">
+                        {testimonial.author}
+                      </p>
+                      <p className="text-sm text-gray-500">
+                        {testimonial.role}, {testimonial.company}
+                      </p>
                     </div>
-                  </motion.div>
-                </AnimatedItem>
+                  </div>
+                </motion.div>
               ))}
-            </AnimatedSection>
+            </div>
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="relative py-24 lg:py-32 bg-white overflow-hidden">
-          <div className="mx-auto max-w-[1600px] px-6 sm:px-8 lg:px-12">
-            <AnimatedSection animation="scale">
-              <div className="relative overflow-hidden rounded-3xl p-12 lg:p-16 text-center">
-                {/* Animated gradient background */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary-600 via-primary-700 to-secondary-700 animate-gradient-shift" />
-
-                {/* Decorative orbs */}
-                <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-white/5 blur-3xl" />
-                <div className="absolute bottom-0 left-0 w-64 h-64 rounded-full bg-gold/10 blur-3xl" />
-
-                {/* Content */}
-                <div className="relative z-10">
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={springs.gentle}
-                    className="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-full bg-white/10 backdrop-blur-sm border border-white/20"
-                  >
-                    <Sparkles className="h-4 w-4 text-gold-light" />
-                    <span className="text-sm font-medium text-white/90">Let&apos;s Create Together</span>
-                  </motion.div>
-
-                  <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-white mb-4 tracking-tight">
-                    Ready to create something{' '}
-                    <span className="text-gold-light">unforgettable</span>?
-                  </h2>
-                  <p className="text-lg text-white/80 max-w-2xl mx-auto mb-8">
-                    Let&apos;s discuss how REACH can help you plan and execute
-                    your next event with excellence.
-                  </p>
-                  <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                    <Link href="/contact">
-                      <PremiumButton variant="gold" size="lg" icon={<ArrowIcon />}>
-                        Get in Touch
-                      </PremiumButton>
-                    </Link>
-                    <Link href="/how-we-work">
-                      <PremiumButton
-                        variant="ghost"
-                        size="lg"
-                        className="text-white hover:bg-white/10 border border-white/20"
-                      >
-                        See How We Work
-                      </PremiumButton>
-                    </Link>
-                  </div>
-                </div>
+        {/* CTA Section - Slate blue instead of gradient */}
+        <section className="py-20 lg:py-28 bg-off-white">
+          <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="card-slate text-center py-16 lg:py-20"
+            >
+              <h2 className="heading-lg text-white mb-4">
+                Ready to create something unforgettable?
+              </h2>
+              <p className="text-lg text-white/80 max-w-2xl mx-auto mb-8">
+                Let&apos;s discuss how REACH can help you plan and execute your
+                next event with excellence.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link href="/contact" className="btn-white">
+                  Get in Touch
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+                <Link
+                  href="/how-we-work"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 text-white font-medium rounded-xl border border-white/30 hover:bg-white/10 transition-colors"
+                >
+                  See How We Work
+                </Link>
               </div>
-            </AnimatedSection>
+            </motion.div>
           </div>
         </section>
       </main>

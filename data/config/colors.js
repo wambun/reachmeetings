@@ -1,33 +1,48 @@
-/* REACH Meetings & Events - Premium light theme with sophisticated accents */
+/* REACH Meetings & Events - Refined Vectura-inspired palette */
 const colors = {
+  // Slate Blue - Primary accent (sophisticated, trustworthy)
   primary: {
-    lighter: '#93c5fd',
-    light: '#60a5fa',
-    main: '#3b82f6',
-    dark: '#2563eb',
-    darker: '#1d4ed8',
+    50: '#e8edf3',
+    100: '#d1dbe7',
+    200: '#a3b7cf',
+    300: '#7593b7',
+    400: '#5a7a9f',
+    500: '#415371', // Main slate blue
+    600: '#3a4a65',
+    700: '#334159',
+    800: '#2c384d',
+    900: '#252f41',
   },
+  // Warm Brown - Secondary accent
   secondary: {
-    lighter: '#c4b5fd',
-    light: '#a78bfa',
-    main: '#8b5cf6',
-    dark: '#7c3aed',
-    darker: '#6d28d9',
+    50: '#f7f3f0',
+    100: '#efe7e1',
+    200: '#dfcfc3',
+    300: '#cfb7a5',
+    400: '#a3836b',
+    500: '#715441', // Main warm brown
+    600: '#664b3a',
+    700: '#5a4233',
+    800: '#4f392c',
+    900: '#443025',
   },
-  // Premium accent colors for luxury feel
-  accent: {
-    gold: '#d4af37',
-    goldLight: '#f4d03f',
-    goldDark: '#b8960c',
-    amber: '#f59e0b',
-    amberLight: '#fbbf24',
-    champagne: '#f5e6d3',
+  // Warm neutrals - Backgrounds and surfaces
+  warm: {
+    50: '#fbfaf9',   // Main background
+    100: '#f9fafb',  // Light cards
+    200: '#f2ece8',  // Beige cards/sections
+    300: '#e8e4df',  // Darker beige
+    400: '#d5cfc8',  // Muted
   },
-  // Warm neutral tones
+  // Pure neutrals
   neutral: {
-    warm50: '#faf8f5',
-    warm100: '#f5f0e8',
-    warm200: '#e8e0d5',
+    white: '#ffffff',
+    offWhite: '#fafafa',
+    lightGray: '#f5f5f5',
+    gray: '#9ca3af',
+    darkGray: '#6b7280',
+    charcoal: '#222222', // Main text
+    black: '#000000',
   },
 };
 

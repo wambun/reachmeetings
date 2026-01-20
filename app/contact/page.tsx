@@ -10,17 +10,10 @@ import {
   CheckCircle,
   Clock,
   Building,
-  Sparkles,
+  ArrowRight,
 } from 'lucide-react';
 import Header from '@/components/shared/Header';
 import Footer from '@/components/shared/Footer';
-import { FloatingShapes } from '@/components/shared/ui/FloatingShapes';
-import { PremiumButton } from '@/components/shared/ui/PremiumButton';
-import {
-  AnimatedSection,
-  AnimatedItem,
-} from '@/components/shared/ui/AnimatedSection';
-import { cardHover, springs, heroTextReveal, staggerContainer, fadeInUp } from '@/lib/animations';
 
 const contactInfo = [
   {
@@ -114,74 +107,69 @@ export default function ContactPage() {
 
       <main className="flex-1 pt-20">
         {/* Hero Section */}
-        <section className="relative py-24 lg:py-32 overflow-hidden">
-          <div className="absolute inset-0 bg-mesh-gradient" />
-          <FloatingShapes variant="hero" />
-
-          <div className="relative mx-auto max-w-[1600px] px-6 sm:px-8 lg:px-12">
-            <motion.div
-              initial="initial"
-              animate="animate"
-              variants={staggerContainer}
-              className="max-w-3xl"
-            >
-              <motion.div
-                variants={fadeInUp}
-                className="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-full bg-white/80 backdrop-blur-sm border border-gray-200/50 shadow-sm"
+        <section className="py-20 lg:py-28 bg-off-white">
+          <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
+            <div className="max-w-3xl">
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="text-label text-[#415371] mb-3"
               >
-                <Sparkles className="h-4 w-4 text-gold" />
-                <span className="text-sm font-medium text-gray-700 tracking-wide">
-                  Get in Touch
-                </span>
-              </motion.div>
-
+                Get in Touch
+              </motion.p>
               <motion.h1
-                variants={heroTextReveal}
-                className="heading-xl mb-6"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 }}
+                className="heading-display text-charcoal mb-6"
               >
                 Let&apos;s create something{' '}
-                <span className="gradient-text-premium">unforgettable</span> together
+                <span className="text-[#415371]">unforgettable</span> together
               </motion.h1>
-
               <motion.p
-                variants={fadeInUp}
-                className="text-body-lg max-w-2xl"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+                className="text-body-lg"
               >
                 Whether you&apos;re planning a corporate meeting, an incentive
                 trip, or a special event, we&apos;re here to help bring your
                 vision to life.
               </motion.p>
-            </motion.div>
+            </div>
           </div>
         </section>
 
         {/* Contact Form & Info Section */}
-        <section className="relative py-24 lg:py-32 bg-warm-50 overflow-hidden">
-          <FloatingShapes variant="section" />
-
-          <div className="relative mx-auto max-w-[1600px] px-6 sm:px-8 lg:px-12">
-            <div className="grid lg:grid-cols-5 gap-16">
+        <section className="py-20 lg:py-28 bg-white">
+          <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
+            <div className="grid lg:grid-cols-5 gap-12 lg:gap-16">
               {/* Contact Form */}
-              <AnimatedSection animation="left" className="lg:col-span-3">
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className="lg:col-span-3"
+              >
                 <h2 className="heading-md mb-6">
-                  Send us a <span className="gradient-text-premium">message</span>
+                  Send us a message
                 </h2>
 
                 {isSubmitted ? (
                   <motion.div
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    className="p-8 rounded-3xl glass border border-white/30 shadow-premium text-center"
+                    className="card-beige text-center py-12"
                   >
                     <motion.div
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}
-                      transition={springs.bouncy}
-                      className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-green-100 to-green-200 text-green-600 mb-6"
+                      transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+                      className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#415371] text-white mb-6"
                     >
-                      <CheckCircle className="h-10 w-10" />
+                      <CheckCircle className="h-8 w-8" />
                     </motion.div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-2 tracking-tight">
+                    <h3 className="text-xl font-semibold text-charcoal mb-2">
                       Thank you for reaching out!
                     </h3>
                     <p className="text-gray-600">
@@ -191,12 +179,12 @@ export default function ContactPage() {
                   </motion.div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-6">
-                    <div className="p-8 rounded-3xl glass border border-white/30 shadow-premium space-y-6">
+                    <div className="card-light space-y-6">
                       <div className="grid sm:grid-cols-2 gap-6">
                         <div>
                           <label
                             htmlFor="name"
-                            className="block text-sm font-medium text-gray-700 mb-2"
+                            className="block text-sm font-medium text-charcoal mb-2"
                           >
                             Full Name *
                           </label>
@@ -207,14 +195,14 @@ export default function ContactPage() {
                             required
                             value={formState.name}
                             onChange={handleChange}
-                            className="w-full px-4 py-3.5 rounded-xl bg-white/80 backdrop-blur-sm border border-gray-200/50 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:border-primary-300 transition-all shadow-sm"
+                            className="w-full px-4 py-3 rounded-xl bg-white border border-gray-200 text-charcoal placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#415371]/20 focus:border-[#415371] transition-all"
                             placeholder="John Smith"
                           />
                         </div>
                         <div>
                           <label
                             htmlFor="email"
-                            className="block text-sm font-medium text-gray-700 mb-2"
+                            className="block text-sm font-medium text-charcoal mb-2"
                           >
                             Email Address *
                           </label>
@@ -225,7 +213,7 @@ export default function ContactPage() {
                             required
                             value={formState.email}
                             onChange={handleChange}
-                            className="w-full px-4 py-3.5 rounded-xl bg-white/80 backdrop-blur-sm border border-gray-200/50 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:border-primary-300 transition-all shadow-sm"
+                            className="w-full px-4 py-3 rounded-xl bg-white border border-gray-200 text-charcoal placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#415371]/20 focus:border-[#415371] transition-all"
                             placeholder="john@company.com"
                           />
                         </div>
@@ -235,7 +223,7 @@ export default function ContactPage() {
                         <div>
                           <label
                             htmlFor="company"
-                            className="block text-sm font-medium text-gray-700 mb-2"
+                            className="block text-sm font-medium text-charcoal mb-2"
                           >
                             Company
                           </label>
@@ -245,14 +233,14 @@ export default function ContactPage() {
                             name="company"
                             value={formState.company}
                             onChange={handleChange}
-                            className="w-full px-4 py-3.5 rounded-xl bg-white/80 backdrop-blur-sm border border-gray-200/50 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:border-primary-300 transition-all shadow-sm"
+                            className="w-full px-4 py-3 rounded-xl bg-white border border-gray-200 text-charcoal placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#415371]/20 focus:border-[#415371] transition-all"
                             placeholder="Your Company"
                           />
                         </div>
                         <div>
                           <label
                             htmlFor="phone"
-                            className="block text-sm font-medium text-gray-700 mb-2"
+                            className="block text-sm font-medium text-charcoal mb-2"
                           >
                             Phone Number
                           </label>
@@ -262,7 +250,7 @@ export default function ContactPage() {
                             name="phone"
                             value={formState.phone}
                             onChange={handleChange}
-                            className="w-full px-4 py-3.5 rounded-xl bg-white/80 backdrop-blur-sm border border-gray-200/50 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:border-primary-300 transition-all shadow-sm"
+                            className="w-full px-4 py-3 rounded-xl bg-white border border-gray-200 text-charcoal placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#415371]/20 focus:border-[#415371] transition-all"
                             placeholder="(555) 123-4567"
                           />
                         </div>
@@ -272,7 +260,7 @@ export default function ContactPage() {
                         <div>
                           <label
                             htmlFor="eventType"
-                            className="block text-sm font-medium text-gray-700 mb-2"
+                            className="block text-sm font-medium text-charcoal mb-2"
                           >
                             Event Type
                           </label>
@@ -281,17 +269,13 @@ export default function ContactPage() {
                             name="eventType"
                             value={formState.eventType}
                             onChange={handleChange}
-                            className="w-full px-4 py-3.5 rounded-xl bg-white/80 backdrop-blur-sm border border-gray-200/50 text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:border-primary-300 transition-all shadow-sm"
+                            className="w-full px-4 py-3 rounded-xl bg-white border border-gray-200 text-charcoal focus:outline-none focus:ring-2 focus:ring-[#415371]/20 focus:border-[#415371] transition-all"
                           >
-                            <option value="" className="bg-white">
+                            <option value="">
                               Select event type
                             </option>
                             {eventTypes.map((type) => (
-                              <option
-                                key={type}
-                                value={type}
-                                className="bg-white"
-                              >
+                              <option key={type} value={type}>
                                 {type}
                               </option>
                             ))}
@@ -300,7 +284,7 @@ export default function ContactPage() {
                         <div>
                           <label
                             htmlFor="attendees"
-                            className="block text-sm font-medium text-gray-700 mb-2"
+                            className="block text-sm font-medium text-charcoal mb-2"
                           >
                             Expected Attendees
                           </label>
@@ -310,7 +294,7 @@ export default function ContactPage() {
                             name="attendees"
                             value={formState.attendees}
                             onChange={handleChange}
-                            className="w-full px-4 py-3.5 rounded-xl bg-white/80 backdrop-blur-sm border border-gray-200/50 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:border-primary-300 transition-all shadow-sm"
+                            className="w-full px-4 py-3 rounded-xl bg-white border border-gray-200 text-charcoal placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#415371]/20 focus:border-[#415371] transition-all"
                             placeholder="e.g., 50-100"
                           />
                         </div>
@@ -319,7 +303,7 @@ export default function ContactPage() {
                       <div>
                         <label
                           htmlFor="message"
-                          className="block text-sm font-medium text-gray-700 mb-2"
+                          className="block text-sm font-medium text-charcoal mb-2"
                         >
                           Tell us about your event *
                         </label>
@@ -330,105 +314,110 @@ export default function ContactPage() {
                           rows={5}
                           value={formState.message}
                           onChange={handleChange}
-                          className="w-full px-4 py-3.5 rounded-xl bg-white/80 backdrop-blur-sm border border-gray-200/50 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:border-primary-300 transition-all resize-none shadow-sm"
+                          className="w-full px-4 py-3 rounded-xl bg-white border border-gray-200 text-charcoal placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#415371]/20 focus:border-[#415371] transition-all resize-none"
                           placeholder="Share details about your event, including dates, goals, and any specific requirements..."
                         />
                       </div>
 
-                      <PremiumButton
+                      <button
                         type="submit"
-                        variant="gold"
-                        size="lg"
-                        loading={isSubmitting}
-                        fullWidth
-                        icon={<Send className="h-4 w-4" />}
-                        iconPosition="right"
+                        disabled={isSubmitting}
+                        className="btn-primary w-full justify-center disabled:opacity-60 disabled:cursor-not-allowed"
                       >
-                        {isSubmitting ? 'Sending...' : 'Send Message'}
-                      </PremiumButton>
+                        {isSubmitting ? (
+                          'Sending...'
+                        ) : (
+                          <>
+                            Send Message
+                            <Send className="h-4 w-4" />
+                          </>
+                        )}
+                      </button>
                     </div>
                   </form>
                 )}
-              </AnimatedSection>
+              </motion.div>
 
               {/* Contact Info */}
-              <AnimatedSection animation="right" className="lg:col-span-2 space-y-8">
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className="lg:col-span-2 space-y-8"
+              >
                 <div>
                   <h2 className="heading-md mb-6">
-                    Contact <span className="gradient-text-gold">Information</span>
+                    Contact Information
                   </h2>
-                  <AnimatedSection stagger staggerSpeed="fast" className="space-y-4">
-                    {contactInfo.map((item) => (
-                      <AnimatedItem key={item.label} animation="right">
-                        <motion.div
-                          className="flex items-start gap-4 p-4 rounded-2xl glass border border-white/30 hover:shadow-premium transition-all duration-300"
-                          variants={cardHover}
-                          initial="initial"
-                          whileHover="hover"
-                          transition={springs.snappy}
-                        >
-                          <div className="p-2.5 rounded-xl bg-gradient-to-br from-primary-50 to-secondary-50 text-primary-600 shadow-sm">
-                            <item.icon className="h-5 w-5" />
-                          </div>
-                          <div>
-                            <p className="text-sm text-gray-500 font-medium">{item.label}</p>
-                            {item.href ? (
-                              <a
-                                href={item.href}
-                                className="text-gray-900 hover:text-primary-600 transition-colors font-medium"
-                              >
-                                {item.value}
-                              </a>
-                            ) : (
-                              <p className="text-gray-900 font-medium">{item.value}</p>
-                            )}
-                          </div>
-                        </motion.div>
-                      </AnimatedItem>
+                  <div className="space-y-4">
+                    {contactInfo.map((item, index) => (
+                      <motion.div
+                        key={item.label}
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: index * 0.1 }}
+                        className="flex items-start gap-4 p-4 card-white card-hover"
+                      >
+                        <div className="icon-box-light">
+                          <item.icon className="h-5 w-5" />
+                        </div>
+                        <div>
+                          <p className="text-sm text-gray-500 font-medium">{item.label}</p>
+                          {item.href ? (
+                            <a
+                              href={item.href}
+                              className="text-charcoal hover:text-[#415371] transition-colors font-medium"
+                            >
+                              {item.value}
+                            </a>
+                          ) : (
+                            <p className="text-charcoal font-medium">{item.value}</p>
+                          )}
+                        </div>
+                      </motion.div>
                     ))}
-                  </AnimatedSection>
+                  </div>
                 </div>
 
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2 tracking-tight">
-                    <div className="p-1.5 rounded-lg bg-gradient-to-br from-primary-50 to-secondary-50">
-                      <Building className="h-5 w-5 text-primary-600" />
+                  <h3 className="text-lg font-semibold text-charcoal mb-4 flex items-center gap-3">
+                    <div className="icon-box-light">
+                      <Building className="h-5 w-5" />
                     </div>
                     Our Offices
                   </h3>
-                  <AnimatedSection stagger staggerSpeed="fast" className="space-y-4">
-                    {offices.map((office) => (
-                      <AnimatedItem key={office.city} animation="right">
-                        <motion.div
-                          className="p-4 rounded-2xl glass border border-white/30 hover:shadow-premium transition-all duration-300"
-                          variants={cardHover}
-                          initial="initial"
-                          whileHover="hover"
-                          transition={springs.snappy}
-                        >
-                          <p className="font-semibold text-gray-900 mb-1 tracking-tight">
-                            {office.city}
-                          </p>
-                          <p className="text-sm text-gray-600">{office.address}</p>
-                          <p className="text-sm text-gray-600">
-                            {office.address2}
-                          </p>
-                        </motion.div>
-                      </AnimatedItem>
+                  <div className="space-y-4">
+                    {offices.map((office, index) => (
+                      <motion.div
+                        key={office.city}
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: index * 0.1 }}
+                        className="card-white card-hover"
+                      >
+                        <p className="font-semibold text-charcoal mb-1">
+                          {office.city}
+                        </p>
+                        <p className="text-sm text-gray-600">{office.address}</p>
+                        <p className="text-sm text-gray-600">
+                          {office.address2}
+                        </p>
+                      </motion.div>
                     ))}
-                  </AnimatedSection>
+                  </div>
                 </div>
 
                 <motion.div
-                  className="p-6 rounded-2xl bg-gradient-to-br from-primary-50 via-secondary-50/50 to-gold/10 border border-white/30 shadow-premium"
-                  variants={cardHover}
-                  initial="initial"
-                  whileHover="hover"
-                  transition={springs.snappy}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  className="card-beige"
                 >
                   <div className="flex items-center gap-3 mb-2">
-                    <Sparkles className="h-5 w-5 text-gold" />
-                    <h3 className="text-lg font-semibold text-gray-900 tracking-tight">
+                    <Clock className="h-5 w-5 text-[#715441]" />
+                    <h3 className="text-lg font-semibold text-charcoal">
                       Quick Response
                     </h3>
                   </div>
@@ -437,57 +426,79 @@ export default function ContactPage() {
                     For urgent matters, please call us directly.
                   </p>
                 </motion.div>
-              </AnimatedSection>
+              </motion.div>
             </div>
           </div>
         </section>
 
-        {/* Map Section Placeholder */}
-        <section className="relative py-24 lg:py-32 bg-white overflow-hidden">
-          <FloatingShapes variant="subtle" />
-
-          <div className="relative mx-auto max-w-[1600px] px-6 sm:px-8 lg:px-12">
-            <AnimatedSection animation="up" className="text-center mb-12">
+        {/* Map Section */}
+        <section className="py-20 lg:py-28 bg-off-white">
+          <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center mb-12"
+            >
               <h2 className="heading-lg mb-4">
-                Based in <span className="gradient-text-gold">Texas</span>, serving worldwide
+                Based in <span className="text-[#415371]">Texas</span>, serving worldwide
               </h2>
-              <p className="text-body text-gray-600 max-w-2xl mx-auto">
+              <p className="text-body max-w-2xl mx-auto">
                 With headquarters in Austin and Dallas, we manage events across
                 the globe for clients of all sizes.
               </p>
-            </AnimatedSection>
+            </motion.div>
 
-            <AnimatedSection animation="scale">
-              <motion.div
-                className="aspect-[21/9] rounded-3xl glass border border-white/30 shadow-premium flex items-center justify-center overflow-hidden"
-                variants={cardHover}
-                initial="initial"
-                whileHover="hover"
-                transition={springs.snappy}
-              >
-                {/* Decorative background */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary-50/30 via-white/50 to-secondary-50/30" />
-                <div className="relative text-center">
-                  <motion.div
-                    animate={{
-                      y: [0, -8, 0],
-                    }}
-                    transition={{
-                      duration: 3,
-                      repeat: Infinity,
-                      ease: 'easeInOut',
-                    }}
-                  >
-                    <div className="p-4 rounded-2xl bg-gradient-to-br from-primary-100 to-secondary-100 shadow-glow-primary mx-auto w-fit mb-4">
-                      <MapPin className="h-12 w-12 text-primary-500" />
-                    </div>
-                  </motion.div>
-                  <p className="text-gray-500 font-medium">
-                    Interactive map coming soon
-                  </p>
-                </div>
-              </motion.div>
-            </AnimatedSection>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="aspect-[21/9] rounded-2xl bg-[#f2ece8] flex items-center justify-center"
+            >
+              <div className="text-center">
+                <motion.div
+                  animate={{
+                    y: [0, -8, 0],
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: 'easeInOut',
+                  }}
+                >
+                  <div className="w-16 h-16 rounded-xl bg-[#415371] flex items-center justify-center mx-auto mb-4">
+                    <MapPin className="h-8 w-8 text-white" />
+                  </div>
+                </motion.div>
+                <p className="text-gray-500 font-medium">
+                  Interactive map coming soon
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="py-20 lg:py-28 bg-white">
+          <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="card-slate text-center py-16 lg:py-20"
+            >
+              <h2 className="heading-lg text-white mb-4">
+                Prefer to talk directly?
+              </h2>
+              <p className="text-lg text-white/80 max-w-2xl mx-auto mb-8">
+                Schedule a consultation call with our team and let&apos;s discuss
+                your event goals in detail.
+              </p>
+              <a href="tel:+15125550123" className="btn-white">
+                Call Us Now
+                <ArrowRight className="h-4 w-4" />
+              </a>
+            </motion.div>
           </div>
         </section>
       </main>
