@@ -453,27 +453,19 @@ export default function ContactPage() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="aspect-[21/9] rounded-2xl bg-[#f2ece8] flex items-center justify-center"
+              className="aspect-[21/9] rounded-2xl overflow-hidden shadow-lg"
             >
-              <div className="text-center">
-                <motion.div
-                  animate={{
-                    y: [0, -8, 0],
-                  }}
-                  transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                    ease: 'easeInOut',
-                  }}
-                >
-                  <div className="w-16 h-16 rounded-xl bg-[#415371] flex items-center justify-center mx-auto mb-4">
-                    <MapPin className="h-8 w-8 text-white" />
-                  </div>
-                </motion.div>
-                <p className="text-gray-500 font-medium">
-                  Interactive map coming soon
-                </p>
-              </div>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3446.8799612177507!2d-97.8088889!3d30.2891667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x865b4a8e0e7b6b0d%3A0x8a7d0b0c0e0e0e0e!2s3736%20Bee%20Cave%20Rd%2C%20West%20Lake%20Hills%2C%20TX%2078746!5e0!3m2!1sen!2sus!4v1705000000000!5m2!1sen!2sus"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="REACH Meetings & Events Office Location"
+                className="w-full h-full"
+              />
             </motion.div>
           </div>
         </section>
