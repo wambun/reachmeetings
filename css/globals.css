@@ -52,7 +52,7 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-semibold font-display text-charcoal;
+    @apply font-medium font-display text-charcoal;
     letter-spacing: -0.02em;
   }
 }
@@ -91,69 +91,69 @@
   /* Premium buttons - larger and more playful */
   .btn-primary {
     @apply inline-flex items-center justify-center gap-2 px-7 py-3.5;
-    @apply bg-[#415371] text-white text-base font-semibold rounded-full;
+    @apply bg-[#415371] text-white text-base font-medium rounded-full;
     @apply transition-all duration-200;
     @apply hover:bg-[#334159] hover:shadow-lg hover:scale-[1.02];
   }
 
   .btn-secondary {
     @apply inline-flex items-center justify-center gap-2 px-7 py-3.5;
-    @apply bg-[#f2ece8] text-charcoal text-base font-semibold rounded-full;
+    @apply bg-[#f2ece8] text-charcoal text-base font-medium rounded-full;
     @apply transition-all duration-200;
     @apply hover:bg-[#e8e4df] hover:scale-[1.02];
   }
 
   .btn-outline {
     @apply inline-flex items-center justify-center gap-2 px-7 py-3.5;
-    @apply bg-transparent text-charcoal text-base font-semibold rounded-full;
+    @apply bg-transparent text-charcoal text-base font-medium rounded-full;
     @apply border-2 border-gray-200 transition-all duration-200;
     @apply hover:bg-gray-50 hover:border-gray-300 hover:scale-[1.02];
   }
 
   .btn-white {
     @apply inline-flex items-center justify-center gap-2 px-7 py-3.5;
-    @apply bg-white text-charcoal text-base font-semibold rounded-full;
+    @apply bg-white text-charcoal text-base font-medium rounded-full;
     @apply shadow-md transition-all duration-200;
     @apply hover:shadow-lg hover:scale-[1.02];
   }
 }
 
 @layer utilities {
-  /* Typography utilities - BIGGER and more impactful */
+  /* Typography utilities - BIGGER with elegant thin weights */
   .heading-display {
-    @apply text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight leading-[1.0];
+    @apply text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-medium tracking-tight leading-[1.0];
     letter-spacing: -0.03em;
   }
 
   .heading-xl {
-    @apply text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight leading-[1.05];
+    @apply text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-medium tracking-tight leading-[1.05];
     letter-spacing: -0.02em;
   }
 
   .heading-lg {
-    @apply text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-[1.1];
+    @apply text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight leading-[1.1];
     letter-spacing: -0.02em;
   }
 
   .heading-md {
-    @apply text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight leading-[1.15];
+    @apply text-2xl sm:text-3xl lg:text-4xl font-medium tracking-tight leading-[1.15];
     letter-spacing: -0.01em;
   }
 
   .heading-sm {
-    @apply text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight leading-[1.2];
+    @apply text-xl sm:text-2xl lg:text-3xl font-normal tracking-tight leading-[1.2];
   }
 
   .text-body-lg {
-    @apply text-lg sm:text-xl lg:text-2xl text-gray-600 leading-relaxed;
+    @apply text-lg sm:text-xl lg:text-2xl text-gray-600 leading-relaxed font-light;
   }
 
   .text-body {
-    @apply text-base sm:text-lg lg:text-xl text-gray-600 leading-relaxed;
+    @apply text-base sm:text-lg lg:text-xl text-gray-600 leading-relaxed font-light;
   }
 
   .text-label {
-    @apply text-sm sm:text-base font-semibold tracking-wide uppercase;
+    @apply text-sm sm:text-base font-medium tracking-wide uppercase;
     letter-spacing: 0.05em;
   }
 

@@ -161,7 +161,7 @@ export default function HowWeWorkPage() {
                 >
                   <div className={index % 2 === 1 ? 'lg:order-2' : ''}>
                     <div className="flex items-center gap-4 mb-6">
-                      <span className="text-5xl lg:text-6xl font-semibold text-[#415371]">
+                      <span className="text-5xl lg:text-6xl font-medium text-[#415371]">
                         {item.step}
                       </span>
                       <div className="icon-box-light">
@@ -238,7 +238,7 @@ export default function HowWeWorkPage() {
                   <div className="icon-box-light mb-4">
                     <item.icon className="h-5 w-5" />
                   </div>
-                  <h3 className="text-lg font-semibold text-charcoal mb-2">
+                  <h3 className="text-lg font-medium text-charcoal mb-2">
                     {item.title}
                   </h3>
                   <p className="text-sm text-gray-600 leading-relaxed">

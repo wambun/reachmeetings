@@ -65,7 +65,7 @@ export default function ServicesPage() {
                       <div className="icon-box-light mb-4 group-hover:bg-[#415371] group-hover:text-white transition-colors duration-300">
                         <service.icon className="h-5 w-5" />
                       </div>
-                      <h3 className="text-lg font-semibold text-charcoal mb-2 group-hover:text-[#415371] transition-colors">
+                      <h3 className="text-lg font-medium text-charcoal mb-2 group-hover:text-[#415371] transition-colors">
                         {service.title}
                       </h3>
                       <p className="text-sm text-gray-600 leading-relaxed mb-4">

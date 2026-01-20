@@ -135,7 +135,7 @@ export default function Home() {
                     transition={{ duration: 0.4, delay: index * 0.08 }}
                     className={`${cardStyles[index]} flex flex-col justify-between min-h-[160px]`}
                   >
-                    <p className={`text-5xl lg:text-6xl font-bold tracking-tight ${isSlate ? 'text-white' : 'text-charcoal'}`}>
+                    <p className={`text-5xl lg:text-6xl font-medium tracking-tight ${isSlate ? 'text-white' : 'text-charcoal'}`}>
                       {stat.value}
                     </p>
                     <p className={`text-base font-medium ${isSlate ? 'text-white/90' : 'text-gray-600'}`}>
@@ -195,7 +195,7 @@ export default function Home() {
                       <div className="icon-box-light mb-4 group-hover:bg-[#415371] group-hover:text-white transition-colors duration-300">
                         <service.icon className="h-6 w-6" />
                       </div>
-                      <h3 className="text-xl font-bold text-charcoal mb-2 group-hover:text-[#415371] transition-colors">
+                      <h3 className="text-xl font-medium text-charcoal mb-2 group-hover:text-[#415371] transition-colors">
                         {service.title}
                       </h3>
                       <p className="text-base text-gray-600 leading-relaxed">
@@ -387,14 +387,14 @@ export default function Home() {
                   className="text-center group"
                 >
                   <div className="aspect-square rounded-2xl bg-[#f2ece8] mb-3 flex items-center justify-center relative overflow-hidden">
-                    <span className="text-5xl font-bold text-[#715441]/30">
+                    <span className="text-5xl font-medium text-[#715441]/30">
                       {member.name.charAt(0)}
                     </span>
                     <div className="absolute inset-0 bg-[#415371] opacity-0 group-hover:opacity-90 transition-opacity duration-300 flex items-center justify-center">
                       <span className="text-white text-base font-semibold">View Profile</span>
                     </div>
                   </div>
-                  <h3 className="text-base font-bold text-charcoal">
+                  <h3 className="text-base font-medium text-charcoal">
                     {member.name}
                   </h3>
                   <p className="text-sm text-gray-500 mt-1">{member.role}</p>
@@ -457,12 +457,12 @@ export default function Home() {
                   </blockquote>
                   <div className="flex items-center gap-4">
                     <div className="w-14 h-14 rounded-full bg-[#415371] flex items-center justify-center">
-                      <span className="text-xl font-bold text-white">
+                      <span className="text-xl font-medium text-white">
                         {testimonial.author.charAt(0)}
                       </span>
                     </div>
                     <div>
-                      <p className="text-lg text-charcoal font-bold">
+                      <p className="text-lg text-charcoal font-medium">
                         {testimonial.author}
                       </p>
                       <p className="text-base text-gray-500">

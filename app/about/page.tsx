@@ -134,7 +134,7 @@ export default function AboutPage() {
                       transition={{ delay: index * 0.1 }}
                       className={`${stat.style} flex flex-col justify-between min-h-[160px]`}
                     >
-                      <p className={`text-4xl font-semibold tracking-tight ${isSlate ? 'text-white' : 'text-charcoal'}`}>
+                      <p className={`text-4xl font-medium tracking-tight ${isSlate ? 'text-white' : 'text-charcoal'}`}>
                         {stat.value}
                       </p>
                       <p className={`text-sm ${isSlate ? 'text-white/80' : 'text-gray-600'}`}>
@@ -194,7 +194,7 @@ export default function AboutPage() {
                   <div className="icon-box-light mb-4">
                     <value.icon className="h-5 w-5" />
                   </div>
-                  <h3 className="text-lg font-semibold text-charcoal mb-2">
+                  <h3 className="text-lg font-medium text-charcoal mb-2">
                     {value.title}
                   </h3>
                   <p className="text-sm text-gray-600 leading-relaxed">
@@ -250,14 +250,14 @@ export default function AboutPage() {
                   className="group"
                 >
                   <div className="aspect-square rounded-2xl bg-[#f2ece8] mb-4 flex items-center justify-center relative overflow-hidden">
-                    <span className="text-6xl font-semibold text-[#715441]/30">
+                    <span className="text-6xl font-medium text-[#715441]/30">
                       {member.name.charAt(0)}
                     </span>
                     <div className="absolute inset-0 bg-[#415371] opacity-0 group-hover:opacity-90 transition-opacity duration-300 flex items-center justify-center">
                       <span className="text-white font-medium">View Profile</span>
                     </div>
                   </div>
-                  <h3 className="text-lg font-semibold text-charcoal">
+                  <h3 className="text-lg font-medium text-charcoal">
                     {member.name}
                   </h3>
                   <p className="text-sm text-gray-500 mt-1">{member.role}</p>

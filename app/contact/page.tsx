@@ -169,7 +169,7 @@ export default function ContactPage() {
                     >
                       <CheckCircle className="h-8 w-8" />
                     </motion.div>
-                    <h3 className="text-xl font-semibold text-charcoal mb-2">
+                    <h3 className="text-xl font-medium text-charcoal mb-2">
                       Thank you for reaching out!
                     </h3>
                     <p className="text-gray-600">
@@ -381,7 +381,7 @@ export default function ContactPage() {
                 </div>
 
                 <div>
-                  <h3 className="text-lg font-semibold text-charcoal mb-4 flex items-center gap-3">
+                  <h3 className="text-lg font-medium text-charcoal mb-4 flex items-center gap-3">
                     <div className="icon-box-light">
                       <Building className="h-5 w-5" />
                     </div>
@@ -397,7 +397,7 @@ export default function ContactPage() {
                         transition={{ delay: index * 0.1 }}
                         className="card-white card-hover"
                       >
-                        <p className="font-semibold text-charcoal mb-1">
+                        <p className="font-medium text-charcoal mb-1">
                           {office.city}
                         </p>
                         <p className="text-sm text-gray-600">{office.address}</p>
@@ -417,7 +417,7 @@ export default function ContactPage() {
                 >
                   <div className="flex items-center gap-3 mb-2">
                     <Clock className="h-5 w-5 text-[#715441]" />
-                    <h3 className="text-lg font-semibold text-charcoal">
+                    <h3 className="text-lg font-medium text-charcoal">
                       Quick Response
                     </h3>
                   </div>
