@@ -116,6 +116,44 @@
     @apply shadow-md transition-all duration-200;
     @apply hover:shadow-lg hover:scale-[1.02];
   }
+
+  /* Shimmer button effect */
+  .btn-shimmer {
+    @apply relative overflow-hidden;
+  }
+
+  .btn-shimmer::before {
+    content: '';
+    @apply absolute inset-0;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.4),
+      transparent
+    );
+    transform: translateX(-100%);
+    transition: none;
+  }
+
+  .btn-shimmer:hover::before {
+    transform: translateX(100%);
+    transition: transform 0.6s ease;
+  }
+
+  /* Glow button effect */
+  .btn-glow {
+    @apply relative;
+  }
+
+  .btn-glow::after {
+    content: '';
+    @apply absolute inset-0 rounded-full opacity-0 transition-opacity duration-300;
+    box-shadow: 0 0 30px rgba(65, 83, 113, 0.4);
+  }
+
+  .btn-glow:hover::after {
+    @apply opacity-100;
+  }
 }
 
 @layer utilities {
@@ -198,14 +236,38 @@
     @apply shadow-xl;
   }
 
-  /* Card hover effect - more playful */
+  /* Card hover effect - premium with glow */
   .card-hover {
     @apply transition-all duration-300;
   }
 
   .card-hover:hover {
-    @apply shadow-xl;
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px -12px rgba(65, 83, 113, 0.15),
+                0 8px 20px -8px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Premium card with glow effect */
+  .card-premium {
+    @apply relative rounded-2xl bg-white border border-gray-100 overflow-hidden;
+    box-shadow: 0 4px 20px -2px rgba(0,0,0,0.06);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .card-premium::before {
+    content: '';
+    @apply absolute inset-0 opacity-0 transition-opacity duration-300;
+    background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(65, 83, 113, 0.06), transparent 40%);
+  }
+
+  .card-premium:hover {
     transform: translateY(-4px);
+    box-shadow: 0 12px 40px -8px rgba(65, 83, 113, 0.12), 0 20px 60px -12px rgba(0, 0, 0, 0.08);
+    border-color: rgba(65, 83, 113, 0.2);
+  }
+
+  .card-premium:hover::before {
+    @apply opacity-100;
   }
 
   /* Section spacing - MORE COMPACT */
@@ -371,4 +433,45 @@ input:-webkit-autofill:focus {
   50% {
     transform: translateY(-10px);
   }
+}
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(65, 83, 113, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(65, 83, 113, 0.3);
+  }
+}
+
+/* Animated gradient text */
+.gradient-text-animated {
+  @apply bg-clip-text text-transparent;
+  background-image: linear-gradient(90deg, #415371, #5a7a9f, #715441, #415371);
+  background-size: 300% 100%;
+  animation: gradient-shift 8s ease infinite;
+}
+
+/* Static gradient text */
+.gradient-text-slate {
+  @apply bg-clip-text text-transparent;
+  background-image: linear-gradient(135deg, #415371 0%, #5a7a9f 100%);
 }
