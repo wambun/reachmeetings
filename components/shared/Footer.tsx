@@ -25,21 +25,21 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-950 border-t border-white/5">
+    <footer className="bg-gray-50 border-t border-gray-100">
       {/* Main Footer */}
       <div className="mx-auto max-w-[1600px] px-6 sm:px-8 lg:px-12 py-16 lg:py-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
           {/* Brand Section */}
           <div className="lg:col-span-4">
             <Link href="/" className="inline-block">
-              <span className="text-2xl font-bold text-white tracking-tight">
+              <span className="text-2xl font-bold text-gray-900 tracking-tight">
                 REACH
               </span>
-              <span className="ml-2 text-sm text-gray-400 font-medium">
+              <span className="ml-2 text-sm text-gray-500 font-medium">
                 Meetings & Events
               </span>
             </Link>
-            <p className="mt-4 text-gray-400 text-sm leading-relaxed max-w-sm">
+            <p className="mt-4 text-gray-600 text-sm leading-relaxed max-w-sm">
               Full-service event management expertise. When you bring people
               together, you can change the world.
             </p>
@@ -48,12 +48,12 @@ export default function Footer() {
             <div className="mt-6 space-y-3">
               <a
                 href={`mailto:${siteConfig.email}`}
-                className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors"
+                className="flex items-center gap-2 text-sm text-gray-600 hover:text-primary-600 transition-colors"
               >
                 <Mail className="h-4 w-4" />
                 {siteConfig.email}
               </a>
-              <div className="flex items-start gap-2 text-sm text-gray-400">
+              <div className="flex items-start gap-2 text-sm text-gray-600">
                 <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0" />
                 <span>3736 Bee Cave Rd, Suite 1174, West Lake Hills, TX 78746</span>
               </div>
@@ -65,7 +65,7 @@ export default function Footer() {
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-8">
               {/* Services */}
               <div>
-                <h3 className="text-sm font-semibold text-white mb-4">
+                <h3 className="text-sm font-semibold text-gray-900 mb-4">
                   Services
                 </h3>
                 <ul className="space-y-3">
@@ -73,7 +73,7 @@ export default function Footer() {
                     <li key={item.name}>
                       <Link
                         href={item.href}
-                        className="text-sm text-gray-400 hover:text-white transition-colors"
+                        className="text-sm text-gray-600 hover:text-primary-600 transition-colors"
                       >
                         {item.name}
                       </Link>
@@ -84,7 +84,7 @@ export default function Footer() {
 
               {/* Company */}
               <div>
-                <h3 className="text-sm font-semibold text-white mb-4">
+                <h3 className="text-sm font-semibold text-gray-900 mb-4">
                   Company
                 </h3>
                 <ul className="space-y-3">
@@ -92,7 +92,7 @@ export default function Footer() {
                     <li key={item.name}>
                       <Link
                         href={item.href}
-                        className="text-sm text-gray-400 hover:text-white transition-colors"
+                        className="text-sm text-gray-600 hover:text-primary-600 transition-colors"
                       >
                         {item.name}
                       </Link>
@@ -103,7 +103,7 @@ export default function Footer() {
 
               {/* Social & Accreditations */}
               <div>
-                <h3 className="text-sm font-semibold text-white mb-4">
+                <h3 className="text-sm font-semibold text-gray-900 mb-4">
                   Connect
                 </h3>
                 <div className="flex gap-3">
@@ -115,7 +115,7 @@ export default function Footer() {
                           href={item.href}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="p-2 rounded-lg bg-white/5 text-gray-400 hover:text-white hover:bg-white/10 transition-colors"
+                          className="p-2 rounded-lg bg-white text-gray-500 hover:text-primary-600 hover:bg-primary-50 transition-colors border border-gray-100"
                           aria-label={item.name}
                         >
                           <item.icon className="h-5 w-5" />
@@ -132,7 +132,7 @@ export default function Footer() {
                       href="https://www.iatan.org/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-xs text-gray-400 hover:text-white transition-colors"
+                      className="text-xs text-gray-500 hover:text-primary-600 transition-colors"
                     >
                       IATAN
                     </a>
@@ -140,7 +140,7 @@ export default function Footer() {
                       href="https://www.asta.org/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-xs text-gray-400 hover:text-white transition-colors"
+                      className="text-xs text-gray-500 hover:text-primary-600 transition-colors"
                     >
                       ASTA
                     </a>
@@ -153,7 +153,7 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-white/5">
+      <div className="border-t border-gray-200">
         <div className="mx-auto max-w-[1600px] px-6 sm:px-8 lg:px-12 py-6">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
             <p className="text-xs text-gray-500">
@@ -165,7 +165,7 @@ export default function Footer() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="text-xs text-gray-500 hover:text-gray-300 transition-colors"
+                  className="text-xs text-gray-500 hover:text-gray-700 transition-colors"
                 >
                   {item.name}
                 </Link>

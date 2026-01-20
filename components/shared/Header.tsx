@@ -12,15 +12,15 @@ export default function Header() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-gray-950/80 backdrop-blur-xl border-b border-white/5">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-xl border-b border-gray-100">
       <nav className="mx-auto max-w-[1600px] px-6 sm:px-8 lg:px-12">
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
-            <span className="text-2xl font-bold text-white tracking-tight">
+            <span className="text-2xl font-bold text-gray-900 tracking-tight">
               REACH
             </span>
-            <span className="hidden sm:inline text-sm text-gray-400 font-medium">
+            <span className="hidden sm:inline text-sm text-gray-500 font-medium">
               Meetings & Events
             </span>
           </Link>
@@ -39,8 +39,8 @@ export default function Header() {
                     className={cn(
                       'flex items-center gap-1 px-4 py-2 text-sm font-medium transition-colors rounded-lg',
                       activeDropdown === item.name
-                        ? 'text-white bg-white/5'
-                        : 'text-gray-300 hover:text-white hover:bg-white/5'
+                        ? 'text-primary-600 bg-primary-50'
+                        : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
                     )}
                   >
                     {item.name}
@@ -54,7 +54,7 @@ export default function Header() {
                 ) : (
                   <Link
                     href={item.href || '/'}
-                    className="px-4 py-2 text-sm font-medium text-gray-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors"
+                    className="px-4 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-colors"
                   >
                     {item.name}
                   </Link>
@@ -70,19 +70,19 @@ export default function Header() {
                       transition={{ duration: 0.2 }}
                       className="absolute left-0 top-full pt-2 w-72"
                     >
-                      <div className="rounded-xl bg-gray-900 border border-white/10 shadow-2xl shadow-black/50 overflow-hidden">
+                      <div className="rounded-xl bg-white border border-gray-100 shadow-xl shadow-gray-200/50 overflow-hidden">
                         <div className="p-2">
                           {item.items.map((subItem) => (
                             <Link
                               key={subItem.name}
                               href={subItem.href}
-                              className="flex flex-col gap-1 px-4 py-3 rounded-lg hover:bg-white/5 transition-colors group"
+                              className="flex flex-col gap-1 px-4 py-3 rounded-lg hover:bg-gray-50 transition-colors group"
                             >
-                              <span className="text-sm font-medium text-white group-hover:text-primary-400 transition-colors">
+                              <span className="text-sm font-medium text-gray-900 group-hover:text-primary-600 transition-colors">
                                 {subItem.name}
                               </span>
                               {subItem.description && (
-                                <span className="text-xs text-gray-400">
+                                <span className="text-xs text-gray-500">
                                   {subItem.description}
                                 </span>
                               )}
@@ -101,7 +101,7 @@ export default function Header() {
           <div className="hidden lg:flex lg:items-center lg:gap-4">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center px-5 py-2.5 text-sm font-medium text-white bg-primary-600 hover:bg-primary-500 rounded-lg transition-colors"
+              className="inline-flex items-center justify-center px-5 py-2.5 text-sm font-medium text-white bg-primary-600 hover:bg-primary-700 rounded-lg transition-colors shadow-sm"
             >
               Get in Touch
             </Link>
@@ -110,7 +110,7 @@ export default function Header() {
           {/* Mobile Menu Button */}
           <button
             type="button"
-            className="lg:hidden p-2 text-gray-400 hover:text-white"
+            className="lg:hidden p-2 text-gray-500 hover:text-gray-900"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle mobile menu"
           >
@@ -131,7 +131,7 @@ export default function Header() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="lg:hidden overflow-hidden bg-gray-950 border-t border-white/5"
+            className="lg:hidden overflow-hidden bg-white border-t border-gray-100"
           >
             <div className="px-6 py-4 space-y-2">
               {mainNavigation.map((item) => (
@@ -144,7 +144,7 @@ export default function Header() {
                             activeDropdown === item.name ? null : item.name
                           )
                         }
-                        className="flex w-full items-center justify-between px-4 py-3 text-base font-medium text-gray-300 hover:text-white rounded-lg hover:bg-white/5 transition-colors"
+                        className="flex w-full items-center justify-between px-4 py-3 text-base font-medium text-gray-600 hover:text-gray-900 rounded-lg hover:bg-gray-50 transition-colors"
                       >
                         {item.name}
                         <ChevronDown
@@ -167,7 +167,7 @@ export default function Header() {
                                 key={subItem.name}
                                 href={subItem.href}
                                 onClick={() => setMobileMenuOpen(false)}
-                                className="block px-4 py-2 text-sm text-gray-400 hover:text-white transition-colors"
+                                className="block px-4 py-2 text-sm text-gray-500 hover:text-gray-900 transition-colors"
                               >
                                 {subItem.name}
                               </Link>
@@ -180,7 +180,7 @@ export default function Header() {
                     <Link
                       href={item.href || '/'}
                       onClick={() => setMobileMenuOpen(false)}
-                      className="block px-4 py-3 text-base font-medium text-gray-300 hover:text-white rounded-lg hover:bg-white/5 transition-colors"
+                      className="block px-4 py-3 text-base font-medium text-gray-600 hover:text-gray-900 rounded-lg hover:bg-gray-50 transition-colors"
                     >
                       {item.name}
                     </Link>
@@ -191,7 +191,7 @@ export default function Header() {
                 <Link
                   href="/contact"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="block w-full text-center px-5 py-3 text-base font-medium text-white bg-primary-600 hover:bg-primary-500 rounded-lg transition-colors"
+                  className="block w-full text-center px-5 py-3 text-base font-medium text-white bg-primary-600 hover:bg-primary-700 rounded-lg transition-colors"
                 >
                   Get in Touch
                 </Link>

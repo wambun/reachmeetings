@@ -111,8 +111,8 @@ export default function HowWeWorkPage() {
       <main className="flex-1 pt-20">
         {/* Hero Section */}
         <section className="relative py-24 lg:py-32">
-          <div className="absolute inset-0 bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary-900/20 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-b from-white via-gray-50 to-white" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary-100/50 via-transparent to-transparent" />
 
           <div className="relative mx-auto max-w-[1600px] px-6 sm:px-8 lg:px-12">
             <motion.div
@@ -121,13 +121,13 @@ export default function HowWeWorkPage() {
               transition={{ duration: 0.5 }}
               className="max-w-3xl"
             >
-              <p className="text-sm font-medium text-primary-400 mb-4 tracking-wide uppercase">
+              <p className="text-sm font-medium text-primary-600 mb-4 tracking-wide uppercase">
                 Our Process
               </p>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight tracking-tight">
                 A proven approach to unforgettable events
               </h1>
-              <p className="mt-6 text-lg sm:text-xl text-gray-400 leading-relaxed">
+              <p className="mt-6 text-lg sm:text-xl text-gray-500 leading-relaxed">
                 From initial concept to flawless execution, our structured
                 process ensures every detail is meticulously planned and
                 delivered with excellence.
@@ -137,7 +137,7 @@ export default function HowWeWorkPage() {
         </section>
 
         {/* Process Steps Section */}
-        <section className="relative py-24 lg:py-32 bg-gray-900/50">
+        <section className="relative py-24 lg:py-32 bg-gray-50">
           <div className="mx-auto max-w-[1600px] px-6 sm:px-8 lg:px-12">
             <div className="space-y-16 lg:space-y-24">
               {process.map((item, index) => (
@@ -153,26 +153,26 @@ export default function HowWeWorkPage() {
                 >
                   <div className={index % 2 === 1 ? 'lg:order-2' : ''}>
                     <div className="flex items-center gap-4 mb-6">
-                      <span className="text-6xl lg:text-7xl font-bold text-primary-600/20">
+                      <span className="text-6xl lg:text-7xl font-bold text-primary-100">
                         {item.step}
                       </span>
-                      <div className="p-3 rounded-xl bg-primary-600/10 text-primary-400">
+                      <div className="p-3 rounded-xl bg-primary-50 text-primary-600">
                         <item.icon className="h-8 w-8" />
                       </div>
                     </div>
-                    <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
+                    <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
                       {item.title}
                     </h2>
-                    <p className="text-gray-400 leading-relaxed mb-6">
+                    <p className="text-gray-500 leading-relaxed mb-6">
                       {item.description}
                     </p>
                     <ul className="space-y-3">
                       {item.details.map((detail) => (
                         <li
                           key={detail}
-                          className="flex items-center gap-3 text-gray-300"
+                          className="flex items-center gap-3 text-gray-600"
                         >
-                          <div className="h-1.5 w-1.5 rounded-full bg-primary-400" />
+                          <div className="h-1.5 w-1.5 rounded-full bg-primary-600" />
                           {detail}
                         </li>
                       ))}
@@ -183,11 +183,11 @@ export default function HowWeWorkPage() {
                       index % 2 === 1 ? 'lg:order-1' : ''
                     } relative`}
                   >
-                    <div className="aspect-[4/3] rounded-2xl bg-gradient-to-br from-primary-600/10 to-secondary-600/10 border border-white/5 flex items-center justify-center">
-                      <item.icon className="h-24 w-24 text-primary-400/30" />
+                    <div className="aspect-[4/3] rounded-2xl bg-gradient-to-br from-primary-50 to-secondary-50 border border-gray-100 shadow-sm flex items-center justify-center">
+                      <item.icon className="h-24 w-24 text-primary-200" />
                     </div>
                     {index < process.length - 1 && (
-                      <div className="hidden lg:block absolute -bottom-24 left-1/2 transform -translate-x-1/2 h-24 w-px bg-gradient-to-b from-primary-600/50 to-transparent" />
+                      <div className="hidden lg:block absolute -bottom-24 left-1/2 transform -translate-x-1/2 h-24 w-px bg-gradient-to-b from-primary-300 to-transparent" />
                     )}
                   </div>
                 </motion.div>
@@ -197,7 +197,7 @@ export default function HowWeWorkPage() {
         </section>
 
         {/* Differentiators Section */}
-        <section className="relative py-24 lg:py-32">
+        <section className="relative py-24 lg:py-32 bg-white">
           <div className="mx-auto max-w-[1600px] px-6 sm:px-8 lg:px-12">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -206,13 +206,13 @@ export default function HowWeWorkPage() {
               transition={{ duration: 0.5 }}
               className="text-center mb-16"
             >
-              <p className="text-sm font-medium text-primary-400 mb-2 tracking-wide uppercase">
+              <p className="text-sm font-medium text-primary-600 mb-2 tracking-wide uppercase">
                 Why We&apos;re Different
               </p>
-              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
                 The REACH difference
               </h2>
-              <p className="text-gray-400 max-w-2xl mx-auto">
+              <p className="text-gray-500 max-w-2xl mx-auto">
                 What sets us apart is our commitment to building lasting
                 partnerships and delivering exceptional experiences.
               </p>
@@ -226,15 +226,15 @@ export default function HowWeWorkPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="p-8 rounded-2xl bg-white/5 border border-white/5 hover:bg-white/10 hover:border-white/10 transition-all duration-300"
+                  className="p-8 rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-md hover:border-gray-200 transition-all duration-300"
                 >
-                  <div className="p-3 rounded-xl bg-primary-600/10 text-primary-400 w-fit mb-6">
+                  <div className="p-3 rounded-xl bg-primary-50 text-primary-600 w-fit mb-6">
                     <item.icon className="h-8 w-8" />
                   </div>
-                  <h3 className="text-xl font-semibold text-white mb-3">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3">
                     {item.title}
                   </h3>
-                  <p className="text-gray-400 leading-relaxed">
+                  <p className="text-gray-500 leading-relaxed">
                     {item.description}
                   </p>
                 </motion.div>
@@ -244,7 +244,7 @@ export default function HowWeWorkPage() {
         </section>
 
         {/* CTA Section */}
-        <section className="relative py-24 lg:py-32 bg-gray-900/50">
+        <section className="relative py-24 lg:py-32 bg-gray-50">
           <div className="mx-auto max-w-[1600px] px-6 sm:px-8 lg:px-12">
             <motion.div
               initial={{ opacity: 0, y: 20 }}

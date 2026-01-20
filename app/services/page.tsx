@@ -15,8 +15,8 @@ export default function ServicesPage() {
       <main className="flex-1 pt-20">
         {/* Hero Section */}
         <section className="relative py-24 lg:py-32">
-          <div className="absolute inset-0 bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary-900/20 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-b from-white via-gray-50 to-white" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary-100/50 via-transparent to-transparent" />
 
           <div className="relative mx-auto max-w-[1600px] px-6 sm:px-8 lg:px-12">
             <motion.div
@@ -25,13 +25,13 @@ export default function ServicesPage() {
               transition={{ duration: 0.5 }}
               className="max-w-3xl"
             >
-              <p className="text-sm font-medium text-primary-400 mb-4 tracking-wide uppercase">
+              <p className="text-sm font-medium text-primary-600 mb-4 tracking-wide uppercase">
                 What We Do
               </p>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight tracking-tight">
                 Everything your event needs — from concept to execution
               </h1>
-              <p className="mt-6 text-lg sm:text-xl text-gray-400 leading-relaxed">
+              <p className="mt-6 text-lg sm:text-xl text-gray-600 leading-relaxed">
                 Full-service event management expertise with services including
                 venue sourcing, meeting management, training and incentive
                 programs, executive retreats, event staffing, and a fully
@@ -42,7 +42,7 @@ export default function ServicesPage() {
         </section>
 
         {/* Services Grid */}
-        <section className="relative py-24 lg:py-32 bg-gray-900/50">
+        <section className="relative py-24 lg:py-32 bg-gray-50">
           <div className="mx-auto max-w-[1600px] px-6 sm:px-8 lg:px-12">
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {services.map((service, index) => (
@@ -55,18 +55,18 @@ export default function ServicesPage() {
                 >
                   <Link
                     href={`/services/${service.slug}`}
-                    className="group block h-full p-8 rounded-2xl bg-white/5 border border-white/5 hover:bg-white/10 hover:border-white/10 transition-all duration-300"
+                    className="group block h-full p-8 rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-md hover:border-gray-200 transition-all duration-300"
                   >
-                    <div className="p-3 rounded-xl bg-primary-600/10 text-primary-400 w-fit group-hover:bg-primary-600/20 transition-colors mb-6">
+                    <div className="p-3 rounded-xl bg-primary-100 text-primary-600 w-fit group-hover:bg-primary-200 transition-colors mb-6">
                       <service.icon className="h-8 w-8" />
                     </div>
-                    <h3 className="text-xl font-semibold text-white group-hover:text-primary-400 transition-colors mb-3">
+                    <h3 className="text-xl font-semibold text-gray-900 group-hover:text-primary-600 transition-colors mb-3">
                       {service.title}
                     </h3>
-                    <p className="text-gray-400 leading-relaxed mb-4">
+                    <p className="text-gray-600 leading-relaxed mb-4">
                       {service.shortDescription}
                     </p>
-                    <span className="inline-flex items-center gap-2 text-sm font-medium text-primary-400 group-hover:text-primary-300 transition-colors">
+                    <span className="inline-flex items-center gap-2 text-sm font-medium text-primary-600 group-hover:text-primary-500 transition-colors">
                       Learn more
                       <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
                     </span>
@@ -78,7 +78,7 @@ export default function ServicesPage() {
         </section>
 
         {/* CTA Section */}
-        <section className="relative py-24 lg:py-32">
+        <section className="relative py-24 lg:py-32 bg-white">
           <div className="mx-auto max-w-[1600px] px-6 sm:px-8 lg:px-12">
             <motion.div
               initial={{ opacity: 0, y: 20 }}

@@ -107,8 +107,8 @@ export default function ContactPage() {
       <main className="flex-1 pt-20">
         {/* Hero Section */}
         <section className="relative py-24 lg:py-32">
-          <div className="absolute inset-0 bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary-900/20 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-b from-white via-gray-50 to-white" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary-100/50 via-transparent to-transparent" />
 
           <div className="relative mx-auto max-w-[1600px] px-6 sm:px-8 lg:px-12">
             <motion.div
@@ -117,13 +117,13 @@ export default function ContactPage() {
               transition={{ duration: 0.5 }}
               className="max-w-3xl"
             >
-              <p className="text-sm font-medium text-primary-400 mb-4 tracking-wide uppercase">
+              <p className="text-sm font-medium text-primary-600 mb-4 tracking-wide uppercase">
                 Get in Touch
               </p>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight tracking-tight">
                 Let&apos;s create something unforgettable together
               </h1>
-              <p className="mt-6 text-lg sm:text-xl text-gray-400 leading-relaxed">
+              <p className="mt-6 text-lg sm:text-xl text-gray-600 leading-relaxed">
                 Whether you&apos;re planning a corporate meeting, an incentive
                 trip, or a special event, we&apos;re here to help bring your
                 vision to life.
@@ -133,7 +133,7 @@ export default function ContactPage() {
         </section>
 
         {/* Contact Form & Info Section */}
-        <section className="relative py-24 lg:py-32 bg-gray-900/50">
+        <section className="relative py-24 lg:py-32 bg-gray-50">
           <div className="mx-auto max-w-[1600px] px-6 sm:px-8 lg:px-12">
             <div className="grid lg:grid-cols-5 gap-16">
               {/* Contact Form */}
@@ -144,7 +144,7 @@ export default function ContactPage() {
                 transition={{ duration: 0.5 }}
                 className="lg:col-span-3"
               >
-                <h2 className="text-2xl font-bold text-white mb-6">
+                <h2 className="text-2xl font-bold text-gray-900 mb-6">
                   Send us a message
                 </h2>
 
@@ -152,15 +152,15 @@ export default function ContactPage() {
                   <motion.div
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    className="p-8 rounded-2xl bg-white/5 border border-white/10 text-center"
+                    className="p-8 rounded-2xl bg-white border border-gray-100 shadow-sm text-center"
                   >
-                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-500/20 text-green-400 mb-6">
+                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-50 text-green-600 mb-6">
                       <CheckCircle className="h-8 w-8" />
                     </div>
-                    <h3 className="text-xl font-semibold text-white mb-2">
+                    <h3 className="text-xl font-semibold text-gray-900 mb-2">
                       Thank you for reaching out!
                     </h3>
-                    <p className="text-gray-400">
+                    <p className="text-gray-600">
                       We&apos;ve received your message and will get back to you
                       within 1-2 business days.
                     </p>
@@ -171,7 +171,7 @@ export default function ContactPage() {
                       <div>
                         <label
                           htmlFor="name"
-                          className="block text-sm font-medium text-gray-300 mb-2"
+                          className="block text-sm font-medium text-gray-600 mb-2"
                         >
                           Full Name *
                         </label>
@@ -182,14 +182,14 @@ export default function ContactPage() {
                           required
                           value={formState.name}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
+                          className="w-full px-4 py-3 rounded-lg bg-white border border-gray-200 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
                           placeholder="John Smith"
                         />
                       </div>
                       <div>
                         <label
                           htmlFor="email"
-                          className="block text-sm font-medium text-gray-300 mb-2"
+                          className="block text-sm font-medium text-gray-600 mb-2"
                         >
                           Email Address *
                         </label>
@@ -200,7 +200,7 @@ export default function ContactPage() {
                           required
                           value={formState.email}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
+                          className="w-full px-4 py-3 rounded-lg bg-white border border-gray-200 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
                           placeholder="john@company.com"
                         />
                       </div>
@@ -210,7 +210,7 @@ export default function ContactPage() {
                       <div>
                         <label
                           htmlFor="company"
-                          className="block text-sm font-medium text-gray-300 mb-2"
+                          className="block text-sm font-medium text-gray-600 mb-2"
                         >
                           Company
                         </label>
@@ -220,14 +220,14 @@ export default function ContactPage() {
                           name="company"
                           value={formState.company}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
+                          className="w-full px-4 py-3 rounded-lg bg-white border border-gray-200 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
                           placeholder="Your Company"
                         />
                       </div>
                       <div>
                         <label
                           htmlFor="phone"
-                          className="block text-sm font-medium text-gray-300 mb-2"
+                          className="block text-sm font-medium text-gray-600 mb-2"
                         >
                           Phone Number
                         </label>
@@ -237,7 +237,7 @@ export default function ContactPage() {
                           name="phone"
                           value={formState.phone}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
+                          className="w-full px-4 py-3 rounded-lg bg-white border border-gray-200 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
                           placeholder="(555) 123-4567"
                         />
                       </div>
@@ -247,7 +247,7 @@ export default function ContactPage() {
                       <div>
                         <label
                           htmlFor="eventType"
-                          className="block text-sm font-medium text-gray-300 mb-2"
+                          className="block text-sm font-medium text-gray-600 mb-2"
                         >
                           Event Type
                         </label>
@@ -256,16 +256,16 @@ export default function ContactPage() {
                           name="eventType"
                           value={formState.eventType}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
+                          className="w-full px-4 py-3 rounded-lg bg-white border border-gray-200 text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
                         >
-                          <option value="" className="bg-gray-900">
+                          <option value="" className="bg-white">
                             Select event type
                           </option>
                           {eventTypes.map((type) => (
                             <option
                               key={type}
                               value={type}
-                              className="bg-gray-900"
+                              className="bg-white"
                             >
                               {type}
                             </option>
@@ -275,7 +275,7 @@ export default function ContactPage() {
                       <div>
                         <label
                           htmlFor="attendees"
-                          className="block text-sm font-medium text-gray-300 mb-2"
+                          className="block text-sm font-medium text-gray-600 mb-2"
                         >
                           Expected Attendees
                         </label>
@@ -285,7 +285,7 @@ export default function ContactPage() {
                           name="attendees"
                           value={formState.attendees}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
+                          className="w-full px-4 py-3 rounded-lg bg-white border border-gray-200 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
                           placeholder="e.g., 50-100"
                         />
                       </div>
@@ -294,7 +294,7 @@ export default function ContactPage() {
                     <div>
                       <label
                         htmlFor="message"
-                        className="block text-sm font-medium text-gray-300 mb-2"
+                        className="block text-sm font-medium text-gray-600 mb-2"
                       >
                         Tell us about your event *
                       </label>
@@ -305,7 +305,7 @@ export default function ContactPage() {
                         rows={5}
                         value={formState.message}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all resize-none"
+                        className="w-full px-4 py-3 rounded-lg bg-white border border-gray-200 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all resize-none"
                         placeholder="Share details about your event, including dates, goals, and any specific requirements..."
                       />
                     </div>
@@ -340,16 +340,16 @@ export default function ContactPage() {
                 className="lg:col-span-2 space-y-8"
               >
                 <div>
-                  <h2 className="text-2xl font-bold text-white mb-6">
+                  <h2 className="text-2xl font-bold text-gray-900 mb-6">
                     Contact Information
                   </h2>
                   <div className="space-y-4">
                     {contactInfo.map((item) => (
                       <div
                         key={item.label}
-                        className="flex items-start gap-4 p-4 rounded-xl bg-white/5 border border-white/5"
+                        className="flex items-start gap-4 p-4 rounded-xl bg-white border border-gray-100 shadow-sm"
                       >
-                        <div className="p-2 rounded-lg bg-primary-600/10 text-primary-400">
+                        <div className="p-2 rounded-lg bg-primary-50 text-primary-600">
                           <item.icon className="h-5 w-5" />
                         </div>
                         <div>
@@ -357,12 +357,12 @@ export default function ContactPage() {
                           {item.href ? (
                             <a
                               href={item.href}
-                              className="text-white hover:text-primary-400 transition-colors"
+                              className="text-gray-900 hover:text-primary-600 transition-colors"
                             >
                               {item.value}
                             </a>
                           ) : (
-                            <p className="text-white">{item.value}</p>
+                            <p className="text-gray-900">{item.value}</p>
                           )}
                         </div>
                       </div>
@@ -371,21 +371,21 @@ export default function ContactPage() {
                 </div>
 
                 <div>
-                  <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
-                    <Building className="h-5 w-5 text-primary-400" />
+                  <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                    <Building className="h-5 w-5 text-primary-600" />
                     Our Offices
                   </h3>
                   <div className="space-y-4">
                     {offices.map((office) => (
                       <div
                         key={office.city}
-                        className="p-4 rounded-xl bg-white/5 border border-white/5"
+                        className="p-4 rounded-xl bg-white border border-gray-100 shadow-sm"
                       >
-                        <p className="font-medium text-white mb-1">
+                        <p className="font-medium text-gray-900 mb-1">
                           {office.city}
                         </p>
-                        <p className="text-sm text-gray-400">{office.address}</p>
-                        <p className="text-sm text-gray-400">
+                        <p className="text-sm text-gray-600">{office.address}</p>
+                        <p className="text-sm text-gray-600">
                           {office.address2}
                         </p>
                       </div>
@@ -393,11 +393,11 @@ export default function ContactPage() {
                   </div>
                 </div>
 
-                <div className="p-6 rounded-xl bg-gradient-to-br from-primary-600/10 to-secondary-600/10 border border-white/5">
-                  <h3 className="text-lg font-semibold text-white mb-2">
+                <div className="p-6 rounded-xl bg-gradient-to-br from-primary-50 to-secondary-50 border border-gray-100 shadow-sm">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
                     Quick Response
                   </h3>
-                  <p className="text-sm text-gray-400">
+                  <p className="text-sm text-gray-600">
                     We typically respond to inquiries within 1-2 business days.
                     For urgent matters, please call us directly.
                   </p>
@@ -408,7 +408,7 @@ export default function ContactPage() {
         </section>
 
         {/* Map Section Placeholder */}
-        <section className="relative py-24 lg:py-32">
+        <section className="relative py-24 lg:py-32 bg-white">
           <div className="mx-auto max-w-[1600px] px-6 sm:px-8 lg:px-12">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -417,10 +417,10 @@ export default function ContactPage() {
               transition={{ duration: 0.5 }}
               className="text-center mb-12"
             >
-              <h2 className="text-3xl font-bold text-white mb-4">
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">
                 Based in Texas, serving worldwide
               </h2>
-              <p className="text-gray-400 max-w-2xl mx-auto">
+              <p className="text-gray-600 max-w-2xl mx-auto">
                 With headquarters in Austin and Dallas, we manage events across
                 the globe for clients of all sizes.
               </p>
@@ -431,10 +431,10 @@ export default function ContactPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="aspect-[21/9] rounded-2xl bg-gradient-to-br from-gray-800 to-gray-900 border border-white/5 flex items-center justify-center"
+              className="aspect-[21/9] rounded-2xl bg-gradient-to-br from-gray-100 to-gray-50 border border-gray-200 shadow-sm flex items-center justify-center"
             >
               <div className="text-center">
-                <MapPin className="h-12 w-12 text-primary-400/50 mx-auto mb-4" />
+                <MapPin className="h-12 w-12 text-primary-300 mx-auto mb-4" />
                 <p className="text-gray-500">
                   Interactive map coming soon
                 </p>

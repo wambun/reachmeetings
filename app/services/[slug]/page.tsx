@@ -29,8 +29,8 @@ export default function ServicePage() {
       <main className="flex-1 pt-20">
         {/* Hero Section */}
         <section className="relative py-24 lg:py-32">
-          <div className="absolute inset-0 bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary-900/20 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-b from-white via-gray-50 to-white" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary-100/50 via-transparent to-transparent" />
 
           <div className="relative mx-auto max-w-[1600px] px-6 sm:px-8 lg:px-12">
             <motion.div
@@ -41,20 +41,20 @@ export default function ServicePage() {
             >
               <Link
                 href="/services"
-                className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors mb-6"
+                className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-gray-900 transition-colors mb-6"
               >
                 <ArrowLeft className="h-4 w-4" />
                 Back to Services
               </Link>
 
-              <div className="p-4 rounded-xl bg-primary-600/10 text-primary-400 w-fit mb-6">
+              <div className="p-4 rounded-xl bg-primary-100 text-primary-600 w-fit mb-6">
                 <service.icon className="h-10 w-10" />
               </div>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight tracking-tight">
                 {service.title}
               </h1>
-              <p className="mt-6 text-lg sm:text-xl text-gray-400 leading-relaxed">
+              <p className="mt-6 text-lg sm:text-xl text-gray-600 leading-relaxed">
                 {service.fullDescription}
               </p>
             </motion.div>
@@ -62,7 +62,7 @@ export default function ServicePage() {
         </section>
 
         {/* Features Section */}
-        <section className="relative py-24 lg:py-32 bg-gray-900/50">
+        <section className="relative py-24 lg:py-32 bg-gray-50">
           <div className="mx-auto max-w-[1600px] px-6 sm:px-8 lg:px-12">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -71,10 +71,10 @@ export default function ServicePage() {
               transition={{ duration: 0.5 }}
               className="max-w-2xl mb-12"
             >
-              <h2 className="text-3xl font-bold text-white mb-4">
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">
                 What&apos;s included
               </h2>
-              <p className="text-gray-400">
+              <p className="text-gray-600">
                 Our {service.title.toLowerCase()} service includes everything
                 you need for success.
               </p>
@@ -88,10 +88,10 @@ export default function ServicePage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="flex items-start gap-4 p-6 rounded-xl bg-white/5 border border-white/5"
+                  className="flex items-start gap-4 p-6 rounded-xl bg-white border border-gray-100 shadow-sm"
                 >
-                  <CheckCircle className="h-6 w-6 text-primary-400 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-300">{feature}</span>
+                  <CheckCircle className="h-6 w-6 text-primary-600 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-600">{feature}</span>
                 </motion.div>
               ))}
             </div>
@@ -99,7 +99,7 @@ export default function ServicePage() {
         </section>
 
         {/* CTA Section */}
-        <section className="relative py-24 lg:py-32">
+        <section className="relative py-24 lg:py-32 bg-white">
           <div className="mx-auto max-w-[1600px] px-6 sm:px-8 lg:px-12">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -108,10 +108,10 @@ export default function ServicePage() {
               transition={{ duration: 0.5 }}
               className="text-center mb-16"
             >
-              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
                 Ready to get started?
               </h2>
-              <p className="text-gray-400 max-w-2xl mx-auto mb-8">
+              <p className="text-gray-600 max-w-2xl mx-auto mb-8">
                 Let&apos;s discuss how our {service.title.toLowerCase()} service
                 can help you achieve your goals.
               </p>
@@ -125,16 +125,16 @@ export default function ServicePage() {
             </motion.div>
 
             {/* Navigation */}
-            <div className="flex justify-between items-center pt-12 border-t border-white/10">
+            <div className="flex justify-between items-center pt-12 border-t border-gray-200">
               {prevService ? (
                 <Link
                   href={`/services/${prevService.slug}`}
-                  className="group flex items-center gap-3 text-gray-400 hover:text-white transition-colors"
+                  className="group flex items-center gap-3 text-gray-500 hover:text-gray-900 transition-colors"
                 >
                   <ArrowLeft className="h-5 w-5 group-hover:-translate-x-1 transition-transform" />
                   <div>
-                    <p className="text-xs text-gray-500">Previous</p>
-                    <p className="font-medium">{prevService.title}</p>
+                    <p className="text-xs text-gray-400">Previous</p>
+                    <p className="font-medium text-gray-900">{prevService.title}</p>
                   </div>
                 </Link>
               ) : (
@@ -144,11 +144,11 @@ export default function ServicePage() {
               {nextService && (
                 <Link
                   href={`/services/${nextService.slug}`}
-                  className="group flex items-center gap-3 text-gray-400 hover:text-white transition-colors text-right"
+                  className="group flex items-center gap-3 text-gray-500 hover:text-gray-900 transition-colors text-right"
                 >
                   <div>
-                    <p className="text-xs text-gray-500">Next</p>
-                    <p className="font-medium">{nextService.title}</p>
+                    <p className="text-xs text-gray-400">Next</p>
+                    <p className="font-medium text-gray-900">{nextService.title}</p>
                   </div>
                   <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
