@@ -456,16 +456,33 @@ export default function ContactPage() {
               className="aspect-[21/9] rounded-2xl overflow-hidden shadow-lg"
             >
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3446.8799612177507!2d-97.8088889!3d30.2891667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x865b4a8e0e7b6b0d%3A0x8a7d0b0c0e0e0e0e!2s3736%20Bee%20Cave%20Rd%2C%20West%20Lake%20Hills%2C%20TX%2078746!5e0!3m2!1sen!2sus!4v1705000000000!5m2!1sen!2sus"
+                src="https://www.openstreetmap.org/export/embed.html?bbox=-97.82577514648439%2C30.275673561413553%2C-97.79201507568361%2C30.30266007040451&amp;layer=mapnik&amp;marker=30.289168248412883%2C-97.8088951110840"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
                 allowFullScreen
                 loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="REACH Meetings & Events Office Location"
+                title="REACH Meetings & Events Office Location - West Lake Hills, TX"
                 className="w-full h-full"
               />
+            </motion.div>
+
+            {/* Link to larger map */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="mt-4 text-center"
+            >
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=3736+Bee+Cave+Rd+Suite+1174+West+Lake+Hills+TX+78746"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm text-[#415371] hover:text-[#2d3a4f] font-medium transition-colors"
+              >
+                <MapPin className="h-4 w-4" />
+                View larger map & get directions
+              </a>
             </motion.div>
           </div>
         </section>
