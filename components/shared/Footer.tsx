@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { Linkedin, Instagram, Facebook, Mail, MapPin } from 'lucide-react';
 import { footerNavigation } from '@/data/navigation';
 import { siteConfig } from '@/data/config/site.settings';
@@ -32,12 +33,13 @@ export default function Footer() {
           {/* Brand Section */}
           <div className="lg:col-span-4">
             <Link href="/" className="inline-block">
-              <span className="text-2xl font-bold text-gray-900 tracking-tight">
-                REACH
-              </span>
-              <span className="ml-2 text-sm text-gray-500 font-medium">
-                Meetings & Events
-              </span>
+              <Image
+                src="/logo.png"
+                alt="REACH Meetings & Events"
+                width={160}
+                height={40}
+                className="h-9 w-auto"
+              />
             </Link>
             <p className="mt-4 text-gray-600 text-sm leading-relaxed max-w-sm">
               Full-service event management expertise. When you bring people

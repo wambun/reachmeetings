@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, Menu, X } from 'lucide-react';
 import { mainNavigation } from '@/data/navigation';
@@ -16,13 +17,15 @@ export default function Header() {
       <nav className="mx-auto max-w-[1600px] px-6 sm:px-8 lg:px-12">
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
-            <span className="text-2xl font-bold text-gray-900 tracking-tight">
-              REACH
-            </span>
-            <span className="hidden sm:inline text-sm text-gray-500 font-medium">
-              Meetings & Events
-            </span>
+          <Link href="/" className="flex items-center">
+            <Image
+              src="/logo.png"
+              alt="REACH Meetings & Events"
+              width={180}
+              height={48}
+              className="h-10 w-auto"
+              priority
+            />
           </Link>
 
           {/* Desktop Navigation */}
