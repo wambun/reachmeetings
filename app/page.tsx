@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   ArrowRight,
   Users,
@@ -421,17 +422,20 @@ export default function Home() {
                   className="text-center group"
                 >
                   <motion.div
-                    className="aspect-square rounded-2xl bg-[#f2ece8] mb-3 flex items-center justify-center relative overflow-hidden cursor-pointer"
+                    className="aspect-square rounded-2xl bg-[#f2ece8] mb-3 relative overflow-hidden cursor-pointer"
                     whileHover={{ scale: 1.05 }}
                     transition={{ type: 'spring', stiffness: 300, damping: 20 }}
                   >
-                    <span className="text-5xl font-medium text-[#715441]/30 transition-transform duration-300 group-hover:scale-110">
-                      {member.name.charAt(0)}
-                    </span>
+                    <Image
+                      src={member.image}
+                      alt={member.name}
+                      fill
+                      className="object-cover transition-transform duration-300 group-hover:scale-110"
+                    />
                     <motion.div
                       className="absolute inset-0 bg-[#415371] flex items-center justify-center"
                       initial={{ opacity: 0 }}
-                      whileHover={{ opacity: 0.95 }}
+                      whileHover={{ opacity: 0.9 }}
                       transition={{ duration: 0.3 }}
                     >
                       <span className="text-white text-base font-semibold">View Profile</span>

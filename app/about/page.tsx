@@ -2,7 +2,8 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { ArrowRight, Heart, Users, Lightbulb, Target } from 'lucide-react';
+import Image from 'next/image';
+import { ArrowRight, Heart, Users, Lightbulb, Target, Linkedin, Mail } from 'lucide-react';
 import Header from '@/components/shared/Header';
 import Footer from '@/components/shared/Footer';
 import { team } from '@/data/team';
@@ -246,21 +247,55 @@ export default function AboutPage() {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="group"
+                  transition={{ delay: index * 0.05 }}
+                  className="group card-white card-hover"
                 >
-                  <div className="aspect-square rounded-2xl bg-[#f2ece8] mb-4 flex items-center justify-center relative overflow-hidden">
-                    <span className="text-6xl font-medium text-[#715441]/30">
-                      {member.name.charAt(0)}
-                    </span>
-                    <div className="absolute inset-0 bg-[#415371] opacity-0 group-hover:opacity-90 transition-opacity duration-300 flex items-center justify-center">
-                      <span className="text-white font-medium">View Profile</span>
-                    </div>
+                  <div className="aspect-square rounded-xl bg-[#f2ece8] mb-4 relative overflow-hidden">
+                    <Image
+                      src={member.image}
+                      alt={member.name}
+                      fill
+                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
                   </div>
                   <h3 className="text-lg font-medium text-charcoal">
                     {member.name}
+                    {member.credentials && (
+                      <span className="text-sm font-normal text-gray-500 ml-1">
+                        {member.credentials}
+                      </span>
+                    )}
                   </h3>
-                  <p className="text-sm text-gray-500 mt-1">{member.role}</p>
+                  <p className="text-sm text-[#415371] font-medium mt-1">{member.role}</p>
+                  {member.bio && (
+                    <p className="text-sm text-gray-600 mt-3 line-clamp-3">
+                      {member.bio.split('\n')[0]}
+                    </p>
+                  )}
+                  {(member.linkedIn || member.email) && (
+                    <div className="flex gap-2 mt-4">
+                      {member.linkedIn && (
+                        <a
+                          href={member.linkedIn}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="p-2 rounded-lg bg-gray-100 text-gray-600 hover:bg-[#415371] hover:text-white transition-colors"
+                          aria-label={`${member.name} LinkedIn`}
+                        >
+                          <Linkedin className="h-4 w-4" />
+                        </a>
+                      )}
+                      {member.email && (
+                        <a
+                          href={`mailto:${member.email}`}
+                          className="p-2 rounded-lg bg-gray-100 text-gray-600 hover:bg-[#415371] hover:text-white transition-colors"
+                          aria-label={`Email ${member.name}`}
+                        >
+                          <Mail className="h-4 w-4" />
+                        </a>
+                      )}
+                    </div>
+                  )}
                 </motion.div>
               ))}
             </div>
