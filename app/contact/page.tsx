@@ -107,7 +107,7 @@ export default function ContactPage() {
 
       <main className="flex-1 pt-20">
         {/* Hero Section */}
-        <section className="py-20 lg:py-28 bg-off-white">
+        <section className="py-12 lg:py-16 bg-off-white">
           <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
             <div className="max-w-3xl">
               <motion.p
@@ -141,7 +141,7 @@ export default function ContactPage() {
         </section>
 
         {/* Contact Form & Info Section */}
-        <section className="py-20 lg:py-28 bg-white">
+        <section className="py-12 lg:py-16 bg-white">
           <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
             <div className="grid lg:grid-cols-5 gap-12 lg:gap-16">
               {/* Contact Form */}
@@ -432,7 +432,7 @@ export default function ContactPage() {
         </section>
 
         {/* Map Section */}
-        <section className="py-20 lg:py-28 bg-off-white">
+        <section className="py-12 lg:py-16 bg-off-white">
           <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -479,7 +479,7 @@ export default function ContactPage() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 lg:py-28 bg-white">
+        <section className="py-12 lg:py-16 bg-white">
           <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
             <motion.div
               initial={{ opacity: 0, y: 20 }}

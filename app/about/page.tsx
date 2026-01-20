@@ -41,7 +41,7 @@ export default function AboutPage() {
 
       <main className="flex-1 pt-20">
         {/* Hero Section */}
-        <section className="py-20 lg:py-28 bg-off-white">
+        <section className="py-12 lg:py-16 bg-off-white">
           <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
             <div className="max-w-3xl">
               <motion.p
@@ -149,7 +149,7 @@ export default function AboutPage() {
         </section>
 
         {/* Values Section */}
-        <section className="py-20 lg:py-28 bg-off-white">
+        <section className="py-12 lg:py-16 bg-off-white">
           <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
             <div className="max-w-2xl mb-16">
               <motion.p
@@ -305,7 +305,7 @@ export default function AboutPage() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 lg:py-28 bg-white">
+        <section className="py-12 lg:py-16 bg-white">
           <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
             <motion.div
               initial={{ opacity: 0, y: 20 }}

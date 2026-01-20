@@ -14,7 +14,7 @@ export default function ServicesPage() {
 
       <main className="flex-1 pt-20">
         {/* Hero Section */}
-        <section className="py-20 lg:py-28 bg-off-white">
+        <section className="py-12 lg:py-16 bg-off-white">
           <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
             <div className="max-w-3xl">
               <motion.p
@@ -49,7 +49,7 @@ export default function ServicesPage() {
         </section>
 
         {/* Services Grid */}
-        <section className="py-20 lg:py-28 bg-white">
+        <section className="py-12 lg:py-16 bg-white">
           <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
               {services.map((service, index) => (
@@ -84,7 +84,7 @@ export default function ServicesPage() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 lg:py-28 bg-off-white">
+        <section className="py-12 lg:py-16 bg-off-white">
           <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
             <motion.div
               initial={{ opacity: 0, y: 20 }}

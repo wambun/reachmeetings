@@ -6,12 +6,9 @@ import {
   ArrowRight,
   Users,
   Globe,
-  Award,
-  Calendar,
   CheckCircle,
   Quote,
   Zap,
-  Building2,
   Crown,
 } from 'lucide-react';
 import Header from '@/components/shared/Header';
@@ -62,21 +59,21 @@ export default function Home() {
       <Header />
 
       <main className="flex-1">
-        {/* Hero Section */}
-        <section className="relative min-h-screen flex items-center pt-20 bg-off-white">
-          <div className="relative mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12 py-24 lg:py-32">
+        {/* Hero Section - Compact */}
+        <section className="relative pt-28 pb-16 lg:pt-32 lg:pb-20 bg-off-white">
+          <div className="relative mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
             <motion.div
               initial="initial"
               animate="animate"
               variants={stagger}
-              className="max-w-3xl"
+              className="max-w-4xl"
             >
               <motion.div
                 variants={fadeIn}
                 transition={{ duration: 0.5 }}
-                className="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-full bg-white border border-gray-200/60"
+                className="inline-flex items-center gap-2 px-5 py-2.5 mb-6 rounded-full bg-white border border-gray-200/60 shadow-sm"
               >
-                <span className="text-sm font-medium text-gray-600">
+                <span className="text-base font-semibold text-[#415371]">
                   Event Management Experts
                 </span>
               </motion.div>
@@ -84,7 +81,7 @@ export default function Home() {
               <motion.h1
                 variants={fadeIn}
                 transition={{ duration: 0.5, delay: 0.1 }}
-                className="heading-display text-charcoal mb-6"
+                className="heading-display text-charcoal mb-8"
               >
                 Bring people together.{' '}
                 <span className="text-[#415371]">Change the world.</span>
@@ -93,7 +90,7 @@ export default function Home() {
               <motion.p
                 variants={fadeIn}
                 transition={{ duration: 0.5, delay: 0.2 }}
-                className="text-body-lg max-w-2xl"
+                className="text-body-lg max-w-2xl mb-10"
               >
                 Full-service event management expertise with venue sourcing,
                 meeting management, incentive programs, executive retreats, and
@@ -103,11 +100,11 @@ export default function Home() {
               <motion.div
                 variants={fadeIn}
                 transition={{ duration: 0.5, delay: 0.3 }}
-                className="mt-10 flex flex-col sm:flex-row gap-4"
+                className="flex flex-col sm:flex-row gap-4"
               >
                 <Link href="/contact" className="btn-primary">
                   Get Started
-                  <ArrowRight className="h-4 w-4" />
+                  <ArrowRight className="h-5 w-5" />
                 </Link>
                 <Link href="/services" className="btn-outline">
                   Explore Services
@@ -117,10 +114,10 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Stats Section - Vectura 4-card style */}
-        <section className="py-20 lg:py-28 bg-white">
+        {/* Stats Section - Compact */}
+        <section className="py-12 lg:py-16 bg-white">
           <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
               {stats.map((stat, index) => {
                 const cardStyles = [
                   'card-light',
@@ -135,13 +132,13 @@ export default function Home() {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className={`${cardStyles[index]} flex flex-col justify-between min-h-[180px]`}
+                    transition={{ duration: 0.4, delay: index * 0.08 }}
+                    className={`${cardStyles[index]} flex flex-col justify-between min-h-[160px]`}
                   >
-                    <p className={`text-4xl lg:text-5xl font-semibold tracking-tight ${isSlate ? 'text-white' : 'text-charcoal'}`}>
+                    <p className={`text-5xl lg:text-6xl font-bold tracking-tight ${isSlate ? 'text-white' : 'text-charcoal'}`}>
                       {stat.value}
                     </p>
-                    <p className={`text-sm ${isSlate ? 'text-white/80' : 'text-gray-600'}`}>
+                    <p className={`text-base font-medium ${isSlate ? 'text-white/90' : 'text-gray-600'}`}>
                       {stat.label}
                     </p>
                   </motion.div>
@@ -151,10 +148,10 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Services Section */}
-        <section className="py-20 lg:py-28 bg-off-white">
+        {/* Services Section - Compact */}
+        <section className="py-12 lg:py-16 bg-off-white">
           <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-            <div className="max-w-2xl mb-16">
+            <div className="max-w-2xl mb-10">
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -184,29 +181,29 @@ export default function Home() {
               </motion.p>
             </div>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {services.slice(0, 6).map((service, index) => (
                 <motion.div
                   key={service.slug}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
+                  transition={{ delay: index * 0.08 }}
                 >
                   <Link href={`/services/${service.slug}`}>
                     <div className="group card-white h-full card-hover">
                       <div className="icon-box-light mb-4 group-hover:bg-[#415371] group-hover:text-white transition-colors duration-300">
-                        <service.icon className="h-5 w-5" />
+                        <service.icon className="h-6 w-6" />
                       </div>
-                      <h3 className="text-lg font-semibold text-charcoal mb-2 group-hover:text-[#415371] transition-colors">
+                      <h3 className="text-xl font-bold text-charcoal mb-2 group-hover:text-[#415371] transition-colors">
                         {service.title}
                       </h3>
-                      <p className="text-sm text-gray-600 leading-relaxed">
+                      <p className="text-base text-gray-600 leading-relaxed">
                         {service.shortDescription}
                       </p>
-                      <div className="mt-4 flex items-center gap-1 text-[#415371] text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+                      <div className="mt-4 flex items-center gap-2 text-[#415371] text-base font-semibold opacity-0 group-hover:opacity-100 transition-opacity">
                         Learn more
-                        <ArrowRight className="h-4 w-4" />
+                        <ArrowRight className="h-5 w-5" />
                       </div>
                     </div>
                   </Link>
@@ -218,23 +215,20 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="mt-12 text-center"
+              className="mt-10 text-center"
             >
-              <Link
-                href="/services"
-                className="inline-flex items-center gap-2 text-[#415371] hover:text-[#334159] font-medium transition-colors"
-              >
+              <Link href="/services" className="btn-secondary">
                 View all services
-                <ArrowRight className="h-4 w-4" />
+                <ArrowRight className="h-5 w-5" />
               </Link>
             </motion.div>
           </div>
         </section>
 
-        {/* Why Choose Us Section - Vectura style */}
-        <section className="py-20 lg:py-28 bg-white">
+        {/* Why Choose Us Section - Compact */}
+        <section className="py-12 lg:py-16 bg-white">
           <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-            <div className="grid lg:grid-cols-2 gap-16 items-start">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
                 <motion.p
                   initial={{ opacity: 0, y: 20 }}
@@ -265,7 +259,7 @@ export default function Home() {
                   global meetings management.
                 </motion.p>
 
-                <div className="space-y-4">
+                <div className="space-y-4 mb-8">
                   {[
                     'Consultative, collaborative approach',
                     'Global network of trusted partners',
@@ -277,13 +271,13 @@ export default function Home() {
                       initial={{ opacity: 0, x: -20 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
-                      transition={{ delay: 0.3 + index * 0.1 }}
+                      transition={{ delay: 0.3 + index * 0.08 }}
                       className="flex items-center gap-3"
                     >
-                      <div className="w-5 h-5 rounded-full bg-[#415371] flex items-center justify-center flex-shrink-0">
-                        <CheckCircle className="h-3 w-3 text-white" />
+                      <div className="w-6 h-6 rounded-full bg-[#415371] flex items-center justify-center flex-shrink-0">
+                        <CheckCircle className="h-4 w-4 text-white" />
                       </div>
-                      <span className="text-gray-700 font-medium">{item}</span>
+                      <span className="text-lg text-gray-700 font-medium">{item}</span>
                     </motion.div>
                   ))}
                 </div>
@@ -292,12 +286,11 @@ export default function Home() {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: 0.7 }}
-                  className="mt-10"
+                  transition={{ delay: 0.6 }}
                 >
                   <Link href="/about" className="btn-primary">
                     Learn More About Us
-                    <ArrowRight className="h-4 w-4" />
+                    <ArrowRight className="h-5 w-5" />
                   </Link>
                 </motion.div>
               </div>
@@ -307,25 +300,21 @@ export default function Home() {
                 {[
                   {
                     icon: Users,
-                    title: 'Expert Team',
                     description: 'Seasoned professionals dedicated to your success',
                     style: 'card-light',
                   },
                   {
                     icon: Globe,
-                    title: 'Global Reach',
                     description: 'Partners on several continents worldwide',
                     style: 'card-white border border-gray-100',
                   },
                   {
                     icon: Crown,
-                    title: 'Accredited',
                     description: 'IATAN and ASTA certified agency',
                     style: 'card-slate',
                   },
                   {
                     icon: Zap,
-                    title: 'Full Service',
                     description: 'End-to-end event management',
                     style: 'card-beige',
                   },
@@ -333,17 +322,17 @@ export default function Home() {
                   const isSlate = index === 2;
                   return (
                     <motion.div
-                      key={item.title}
+                      key={item.description}
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
-                      transition={{ delay: index * 0.15 }}
-                      className={`${item.style} flex flex-col min-h-[200px]`}
+                      transition={{ delay: index * 0.1 }}
+                      className={`${item.style} flex flex-col min-h-[180px] card-hover`}
                     >
-                      <div className={`icon-box mb-auto ${isSlate ? 'bg-white text-[#415371]' : 'bg-white text-charcoal shadow-soft'}`}>
-                        <item.icon className="h-5 w-5" />
+                      <div className={`icon-box mb-auto ${isSlate ? 'bg-white text-[#415371]' : 'bg-white text-charcoal shadow-sm'}`}>
+                        <item.icon className="h-6 w-6" />
                       </div>
-                      <p className={`text-sm leading-relaxed ${isSlate ? 'text-white/90' : 'text-gray-600'}`}>
+                      <p className={`text-base font-medium leading-relaxed ${isSlate ? 'text-white' : 'text-gray-700'}`}>
                         {item.description}
                       </p>
                     </motion.div>
@@ -354,10 +343,10 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Team Preview Section */}
-        <section className="py-20 lg:py-28 bg-off-white">
+        {/* Team Preview Section - Compact */}
+        <section className="py-12 lg:py-16 bg-off-white">
           <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-            <div className="text-center mb-16">
+            <div className="text-center mb-10">
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -387,28 +376,28 @@ export default function Home() {
               </motion.p>
             </div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 lg:gap-6">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
               {team.slice(0, 6).map((member, index) => (
                 <motion.div
                   key={member.slug}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
+                  transition={{ delay: index * 0.08 }}
                   className="text-center group"
                 >
-                  <div className="aspect-square rounded-2xl bg-[#f2ece8] mb-4 flex items-center justify-center relative overflow-hidden">
-                    <span className="text-4xl font-semibold text-[#715441]/30">
+                  <div className="aspect-square rounded-2xl bg-[#f2ece8] mb-3 flex items-center justify-center relative overflow-hidden">
+                    <span className="text-5xl font-bold text-[#715441]/30">
                       {member.name.charAt(0)}
                     </span>
                     <div className="absolute inset-0 bg-[#415371] opacity-0 group-hover:opacity-90 transition-opacity duration-300 flex items-center justify-center">
-                      <span className="text-white text-sm font-medium">View Profile</span>
+                      <span className="text-white text-base font-semibold">View Profile</span>
                     </div>
                   </div>
-                  <h3 className="text-sm font-semibold text-charcoal">
+                  <h3 className="text-base font-bold text-charcoal">
                     {member.name}
                   </h3>
-                  <p className="text-xs text-gray-500 mt-1">{member.role}</p>
+                  <p className="text-sm text-gray-500 mt-1">{member.role}</p>
                 </motion.div>
               ))}
             </div>
@@ -417,23 +406,20 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="mt-12 text-center"
+              className="mt-10 text-center"
             >
-              <Link
-                href="/about#team"
-                className="inline-flex items-center gap-2 text-[#415371] hover:text-[#334159] font-medium transition-colors"
-              >
+              <Link href="/about#team" className="btn-secondary">
                 Meet the full team
-                <ArrowRight className="h-4 w-4" />
+                <ArrowRight className="h-5 w-5" />
               </Link>
             </motion.div>
           </div>
         </section>
 
-        {/* Testimonials Section */}
-        <section className="py-20 lg:py-28 bg-white">
+        {/* Testimonials Section - Compact */}
+        <section className="py-12 lg:py-16 bg-white">
           <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-            <div className="text-center mb-16">
+            <div className="text-center mb-10">
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -453,33 +439,33 @@ export default function Home() {
               </motion.h2>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid md:grid-cols-2 gap-4">
               {testimonials.map((testimonial, index) => (
                 <motion.div
                   key={testimonial.author}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: index * 0.15 }}
-                  className="card-light relative"
+                  transition={{ delay: index * 0.1 }}
+                  className="card-light relative card-hover"
                 >
                   <div className="absolute top-6 right-6">
-                    <Quote className="h-8 w-8 text-[#415371]/20" />
+                    <Quote className="h-10 w-10 text-[#415371]/20" />
                   </div>
-                  <blockquote className="text-lg text-gray-700 leading-relaxed mb-6 pr-12">
+                  <blockquote className="text-xl text-gray-700 leading-relaxed mb-6 pr-12 font-medium">
                     &ldquo;{testimonial.quote}&rdquo;
                   </blockquote>
                   <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-full bg-[#415371] flex items-center justify-center">
-                      <span className="text-lg font-semibold text-white">
+                    <div className="w-14 h-14 rounded-full bg-[#415371] flex items-center justify-center">
+                      <span className="text-xl font-bold text-white">
                         {testimonial.author.charAt(0)}
                       </span>
                     </div>
                     <div>
-                      <p className="text-charcoal font-semibold">
+                      <p className="text-lg text-charcoal font-bold">
                         {testimonial.author}
                       </p>
-                      <p className="text-sm text-gray-500">
+                      <p className="text-base text-gray-500">
                         {testimonial.role}, {testimonial.company}
                       </p>
                     </div>
@@ -490,30 +476,30 @@ export default function Home() {
           </div>
         </section>
 
-        {/* CTA Section - Slate blue instead of gradient */}
-        <section className="py-20 lg:py-28 bg-off-white">
+        {/* CTA Section - Compact */}
+        <section className="py-12 lg:py-16 bg-off-white">
           <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="card-slate text-center py-16 lg:py-20"
+              className="card-slate text-center py-12 lg:py-16"
             >
               <h2 className="heading-lg text-white mb-4">
                 Ready to create something unforgettable?
               </h2>
-              <p className="text-lg text-white/80 max-w-2xl mx-auto mb-8">
+              <p className="text-xl text-white/90 max-w-2xl mx-auto mb-8">
                 Let&apos;s discuss how REACH can help you plan and execute your
                 next event with excellence.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link href="/contact" className="btn-white">
                   Get in Touch
-                  <ArrowRight className="h-4 w-4" />
+                  <ArrowRight className="h-5 w-5" />
                 </Link>
                 <Link
                   href="/how-we-work"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3 text-white font-medium rounded-xl border border-white/30 hover:bg-white/10 transition-colors"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-white text-base font-semibold rounded-full border-2 border-white/30 hover:bg-white/10 transition-all hover:scale-[1.02]"
                 >
                   See How We Work
                 </Link>
