@@ -1,4 +1,4 @@
-import { Nunito_Sans } from 'next/font/google';
+import { GeistSans } from 'geist/font/sans';
 import { siteConfig } from '@/data/config/site.settings';
 import { ThemeProviders } from './theme-providers';
 import { Metadata } from 'next';
@@ -8,18 +8,6 @@ import { colors } from '@/data/config/colors.js';
 import '@/css/globals.css';
 import { SearchProvider } from '@/components/shared/SearchProvider';
 import { AnalyticsWrapper } from '@/components/shared/Analytics';
-
-const displayFont = Nunito_Sans({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-space-display',
-});
-
-const baseFont = Nunito_Sans({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-space-default',
-});
 
 const globalColors = colors;
 const style: string[] = [];
@@ -79,7 +67,7 @@ export default function RootLayout({
   return (
     <html
       lang={siteConfig.language}
-      className={`${baseFont.variable} ${displayFont.variable} scroll-smooth`}
+      className={`${GeistSans.variable} scroll-smooth`}
       suppressHydrationWarning
     >
       <head>

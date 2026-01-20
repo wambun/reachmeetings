@@ -23,9 +23,12 @@ module.exports = {
         14: '3.5rem',
       },
       fontFamily: {
-        sans: ['var(--font-space-default)', ...fontFamily.sans],
-        display: ['var(--font-space-display)', ...fontFamily.sans],
-        cursive: ['cursive'],
+        sans: ['var(--font-geist-sans)', ...fontFamily.sans],
+        display: ['var(--font-geist-sans)', ...fontFamily.sans],
+      },
+      letterSpacing: {
+        tighter: '-0.02em',
+        tight: '-0.01em',
       },
       colors: {
         primary: {
@@ -75,6 +78,31 @@ module.exports = {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))',
         },
+        // Premium accent colors
+        gold: {
+          DEFAULT: '#d4af37',
+          light: '#f4d03f',
+          dark: '#b8960c',
+        },
+        amber: {
+          DEFAULT: '#f59e0b',
+          light: '#fbbf24',
+          dark: '#d97706',
+        },
+        warm: {
+          50: '#faf8f5',
+          100: '#f5f0e8',
+          200: '#e8e0d5',
+        },
+      },
+      boxShadow: {
+        'premium-sm': '0 2px 10px -2px rgba(0, 0, 0, 0.08), 0 4px 20px -4px rgba(0, 0, 0, 0.04)',
+        'premium': '0 4px 20px -2px rgba(0, 0, 0, 0.1), 0 12px 40px -4px rgba(0, 0, 0, 0.08)',
+        'premium-lg': '0 8px 30px -4px rgba(0, 0, 0, 0.12), 0 20px 60px -8px rgba(0, 0, 0, 0.1)',
+        'premium-xl': '0 12px 40px -8px rgba(0, 0, 0, 0.15), 0 30px 80px -12px rgba(0, 0, 0, 0.12)',
+        'glow-primary': '0 0 40px -10px rgba(59, 130, 246, 0.5)',
+        'glow-gold': '0 0 40px -10px rgba(212, 175, 55, 0.5)',
+        'inner-glow': 'inset 0 1px 0 0 rgba(255, 255, 255, 0.1)',
       },
       typography: ({ theme }) => ({
         DEFAULT: {
@@ -141,6 +169,35 @@ module.exports = {
         'accordion-up': {
           from: { height: 'var(--radix-accordion-content-height)' },
           to: { height: 0 },
+        },
+        'shimmer': {
+          '0%': { transform: 'translateX(-200%)' },
+          '100%': { transform: 'translateX(200%)' },
+        },
+        'glow-pulse': {
+          '0%, 100%': { opacity: '1' },
+          '50%': { opacity: '0.5' },
+        },
+        'float': {
+          '0%, 100%': { transform: 'translateY(0px)' },
+          '50%': { transform: 'translateY(-20px)' },
+        },
+        'float-slow': {
+          '0%, 100%': { transform: 'translateY(0px)' },
+          '50%': { transform: 'translateY(-10px)' },
+        },
+        'gradient-shift': {
+          '0%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
+          '100%': { backgroundPosition: '0% 50%' },
+        },
+        'scale-in': {
+          '0%': { transform: 'scale(0.95)', opacity: '0' },
+          '100%': { transform: 'scale(1)', opacity: '1' },
+        },
+        'blur-in': {
+          '0%': { filter: 'blur(10px)', opacity: '0' },
+          '100%': { filter: 'blur(0px)', opacity: '1' },
         },
         'fade-in-down': {
           '0%': {
@@ -230,6 +287,14 @@ module.exports = {
         'fade-in-down-normal-delay':
           'fade-in-down 0.8s ease-in-out 2s forwards',
         marquee: '30s marquee linear infinite',
+        // Premium animations
+        'shimmer': 'shimmer 2s ease-in-out infinite',
+        'glow-pulse': 'glow-pulse 2s ease-in-out infinite',
+        'float': 'float 6s ease-in-out infinite',
+        'float-slow': 'float-slow 8s ease-in-out infinite',
+        'gradient-shift': 'gradient-shift 8s ease infinite',
+        'scale-in': 'scale-in 0.5s ease-out forwards',
+        'blur-in': 'blur-in 0.6s ease-out forwards',
       },
     },
   },

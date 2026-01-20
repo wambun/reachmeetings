@@ -1,31 +1,58 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, Menu, X } from 'lucide-react';
+import { ChevronDown, Menu, X, Sparkles } from 'lucide-react';
 import { mainNavigation } from '@/data/navigation';
 import { cn } from '@/lib/utils';
+import { springs } from '@/lib/animations';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-xl border-b border-gray-100">
+    <header
+      className={cn(
+        'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
+        scrolled
+          ? 'bg-white/90 backdrop-blur-xl border-b border-gray-100/50 shadow-sm'
+          : 'bg-white/70 backdrop-blur-lg'
+      )}
+    >
+      {/* Gradient border at top */}
+      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-primary-500 via-secondary-500 to-gold opacity-80" />
+
       <nav className="mx-auto max-w-[1600px] px-6 sm:px-8 lg:px-12">
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center">
-            <Image
-              src="/logo.png"
-              alt="REACH Meetings & Events"
-              width={180}
-              height={48}
-              className="h-10 w-auto"
-              priority
-            />
+          <Link href="/" className="flex items-center group">
+            <motion.div
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              transition={springs.snappy}
+            >
+              <Image
+                src="/logo.png"
+                alt="REACH Meetings & Events"
+                width={180}
+                height={48}
+                className="h-10 w-auto"
+                priority
+              />
+            </motion.div>
           </Link>
 
           {/* Desktop Navigation */}
@@ -38,13 +65,15 @@ export default function Header() {
                 onMouseLeave={() => setActiveDropdown(null)}
               >
                 {item.items ? (
-                  <button
+                  <motion.button
                     className={cn(
-                      'flex items-center gap-1 px-4 py-2 text-sm font-medium transition-colors rounded-lg',
+                      'flex items-center gap-1 px-4 py-2 text-sm font-medium transition-colors rounded-xl',
                       activeDropdown === item.name
-                        ? 'text-primary-600 bg-primary-50'
-                        : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                        ? 'text-primary-600 bg-primary-50/80'
+                        : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50/80'
                     )}
+                    whileHover={{ y: -1 }}
+                    transition={springs.snappy}
                   >
                     {item.name}
                     <ChevronDown
@@ -53,13 +82,20 @@ export default function Header() {
                         activeDropdown === item.name ? 'rotate-180' : ''
                       )}
                     />
-                  </button>
+                  </motion.button>
                 ) : (
                   <Link
                     href={item.href || '/'}
-                    className="px-4 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-colors"
+                    className="relative px-4 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 rounded-xl transition-colors group"
                   >
-                    {item.name}
+                    <motion.span
+                      whileHover={{ y: -1 }}
+                      transition={springs.snappy}
+                      className="relative z-10"
+                    >
+                      {item.name}
+                    </motion.span>
+                    <span className="absolute inset-0 rounded-xl bg-gray-50/0 group-hover:bg-gray-50/80 transition-colors" />
                   </Link>
                 )}
 
@@ -67,25 +103,25 @@ export default function Header() {
                 <AnimatePresence>
                   {item.items && activeDropdown === item.name && (
                     <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: 10 }}
-                      transition={{ duration: 0.2 }}
-                      className="absolute left-0 top-full pt-2 w-72"
+                      initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                      transition={springs.snappy}
+                      className="absolute left-0 top-full pt-2 w-80"
                     >
-                      <div className="rounded-xl bg-white border border-gray-100 shadow-xl shadow-gray-200/50 overflow-hidden">
+                      <div className="rounded-2xl bg-white/95 backdrop-blur-xl border border-gray-100/50 shadow-premium overflow-hidden">
                         <div className="p-2">
                           {item.items.map((subItem) => (
                             <Link
                               key={subItem.name}
                               href={subItem.href}
-                              className="flex flex-col gap-1 px-4 py-3 rounded-lg hover:bg-gray-50 transition-colors group"
+                              className="flex flex-col gap-1 px-4 py-3 rounded-xl hover:bg-gradient-to-br hover:from-primary-50/50 hover:to-secondary-50/30 transition-all group"
                             >
-                              <span className="text-sm font-medium text-gray-900 group-hover:text-primary-600 transition-colors">
+                              <span className="text-sm font-medium text-gray-900 group-hover:text-primary-600 transition-colors tracking-tight">
                                 {subItem.name}
                               </span>
                               {subItem.description && (
-                                <span className="text-xs text-gray-500">
+                                <span className="text-xs text-gray-500 group-hover:text-gray-600 transition-colors">
                                   {subItem.description}
                                 </span>
                               )}
@@ -102,27 +138,35 @@ export default function Header() {
 
           {/* CTA Button */}
           <div className="hidden lg:flex lg:items-center lg:gap-4">
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center px-5 py-2.5 text-sm font-medium text-white bg-primary-600 hover:bg-primary-700 rounded-lg transition-colors shadow-sm"
-            >
-              Get in Touch
+            <Link href="/contact">
+              <motion.div
+                className="relative group"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                transition={springs.snappy}
+              >
+                <div className="inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-medium text-white bg-gradient-to-r from-gold-dark via-gold to-amber-500 rounded-xl transition-all shadow-[0_4px_20px_-4px_rgba(212,175,55,0.5)] group-hover:shadow-[0_8px_30px_-4px_rgba(212,175,55,0.6)]">
+                  <Sparkles className="h-4 w-4" />
+                  Get in Touch
+                </div>
+              </motion.div>
             </Link>
           </div>
 
           {/* Mobile Menu Button */}
-          <button
+          <motion.button
             type="button"
-            className="lg:hidden p-2 text-gray-500 hover:text-gray-900"
+            className="lg:hidden p-2 text-gray-500 hover:text-gray-900 rounded-xl hover:bg-gray-50/80 transition-colors"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle mobile menu"
+            whileTap={{ scale: 0.95 }}
           >
             {mobileMenuOpen ? (
               <X className="h-6 w-6" />
             ) : (
               <Menu className="h-6 w-6" />
             )}
-          </button>
+          </motion.button>
         </div>
       </nav>
 
@@ -134,7 +178,7 @@ export default function Header() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="lg:hidden overflow-hidden bg-white border-t border-gray-100"
+            className="lg:hidden overflow-hidden bg-white/95 backdrop-blur-xl border-t border-gray-100/50"
           >
             <div className="px-6 py-4 space-y-2">
               {mainNavigation.map((item) => (
@@ -147,7 +191,7 @@ export default function Header() {
                             activeDropdown === item.name ? null : item.name
                           )
                         }
-                        className="flex w-full items-center justify-between px-4 py-3 text-base font-medium text-gray-600 hover:text-gray-900 rounded-lg hover:bg-gray-50 transition-colors"
+                        className="flex w-full items-center justify-between px-4 py-3 text-base font-medium text-gray-600 hover:text-gray-900 rounded-xl hover:bg-gray-50/80 transition-colors"
                       >
                         {item.name}
                         <ChevronDown
@@ -170,7 +214,7 @@ export default function Header() {
                                 key={subItem.name}
                                 href={subItem.href}
                                 onClick={() => setMobileMenuOpen(false)}
-                                className="block px-4 py-2 text-sm text-gray-500 hover:text-gray-900 transition-colors"
+                                className="block px-4 py-2 text-sm text-gray-500 hover:text-primary-600 transition-colors"
                               >
                                 {subItem.name}
                               </Link>
@@ -183,7 +227,7 @@ export default function Header() {
                     <Link
                       href={item.href || '/'}
                       onClick={() => setMobileMenuOpen(false)}
-                      className="block px-4 py-3 text-base font-medium text-gray-600 hover:text-gray-900 rounded-lg hover:bg-gray-50 transition-colors"
+                      className="block px-4 py-3 text-base font-medium text-gray-600 hover:text-gray-900 rounded-xl hover:bg-gray-50/80 transition-colors"
                     >
                       {item.name}
                     </Link>
@@ -194,8 +238,9 @@ export default function Header() {
                 <Link
                   href="/contact"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="block w-full text-center px-5 py-3 text-base font-medium text-white bg-primary-600 hover:bg-primary-700 rounded-lg transition-colors"
+                  className="flex w-full items-center justify-center gap-2 text-center px-5 py-3 text-base font-medium text-white bg-gradient-to-r from-gold-dark via-gold to-amber-500 rounded-xl transition-all shadow-[0_4px_20px_-4px_rgba(212,175,55,0.5)]"
                 >
+                  <Sparkles className="h-4 w-4" />
                   Get in Touch
                 </Link>
               </div>

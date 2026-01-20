@@ -63,6 +63,7 @@
     "embla-carousel-react": "^8.6.0",
     "esbuild": "^0.25.9",
     "framer-motion": "^12.23.12",
+    "geist": "^1.5.1",
     "github-slugger": "^2.0.0",
     "image-size": "^2.0.2",
     "js-yaml": "^4.1.0",
