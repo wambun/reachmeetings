@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowLeft, ArrowRight, Calendar, Clock, Tag, User } from 'lucide-react';
 import { notFound, useParams } from 'next/navigation';
 import Header from '@/components/shared/Header';
@@ -86,6 +87,24 @@ export default function BlogPostPage() {
                   <p className="font-medium text-gray-900">{post.author}</p>
                   <p className="text-sm text-gray-500">{post.authorRole}</p>
                 </div>
+              </div>
+            </motion.div>
+
+            {/* Featured Image */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="mt-12 max-w-4xl"
+            >
+              <div className="aspect-video rounded-2xl bg-gray-100 relative overflow-hidden shadow-lg">
+                <Image
+                  src={post.image}
+                  alt={post.title}
+                  fill
+                  className="object-cover"
+                  priority
+                />
               </div>
             </motion.div>
           </div>

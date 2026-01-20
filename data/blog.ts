@@ -10,6 +10,7 @@ export interface BlogPost {
   category: string;
   featured?: boolean;
   tags: string[];
+  image: string;
 }
 
 export const blogPosts: BlogPost[] = [
@@ -48,6 +49,7 @@ The most successful corporate events will be those that thoughtfully integrate t
     category: 'Industry Trends',
     featured: true,
     tags: ['Corporate Events', 'Trends', 'Hybrid Events', 'Sustainability'],
+    image: '/images/blog/corporate-events-future.jpg',
   },
   {
     slug: 'choosing-perfect-venue-corporate-retreat',
@@ -87,6 +89,7 @@ Working with experienced event planners who have established venue relationships
     readTime: '4 min read',
     category: 'Planning Tips',
     tags: ['Venue Selection', 'Corporate Retreat', 'Planning'],
+    image: '/images/blog/venue-selection.jpg',
   },
   {
     slug: 'maximizing-roi-incentive-travel-programs',
@@ -130,6 +133,7 @@ Track program performance against established goals and communicate results broa
     readTime: '5 min read',
     category: 'Incentive Travel',
     tags: ['Incentive Travel', 'ROI', 'Sales Programs', 'Motivation'],
+    image: '/images/blog/incentive-travel.jpg',
   },
   {
     slug: 'essential-elements-executive-retreats',
@@ -174,6 +178,7 @@ We specialize in crafting executive retreat experiences that balance high-level 
     category: 'Executive Events',
     featured: true,
     tags: ['Executive Retreat', 'Leadership', 'Strategic Planning'],
+    image: '/images/blog/executive-retreat.jpg',
   },
   {
     slug: 'event-technology-enhancing-attendee-experience',
@@ -216,6 +221,7 @@ Whatever technologies you choose, ensure they work together seamlessly. Attendee
     readTime: '5 min read',
     category: 'Event Technology',
     tags: ['Event Technology', 'Attendee Experience', 'Innovation'],
+    image: '/images/blog/event-technology.jpg',
   },
   {
     slug: 'sustainable-event-planning-guide',
@@ -271,6 +277,7 @@ Sustainable events often cost the same or less than traditional approaches while
     readTime: '6 min read',
     category: 'Sustainability',
     tags: ['Sustainability', 'Green Events', 'Environmental', 'Best Practices'],
+    image: '/images/blog/sustainable-events.jpg',
   },
 ];
 

@@ -3,7 +3,8 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { ArrowRight, Calendar, Clock, Tag } from 'lucide-react';
+import Image from 'next/image';
+import { ArrowRight, Calendar, Clock } from 'lucide-react';
 import Header from '@/components/shared/Header';
 import Footer from '@/components/shared/Footer';
 import { blogPosts, getAllCategories } from '@/data/blog';
@@ -66,10 +67,13 @@ export default function BlogPage() {
                   className="group block"
                 >
                   <div className="grid lg:grid-cols-2 gap-8 items-center p-8 rounded-2xl bg-white border border-gray-100 shadow-sm hover:border-gray-200 hover:shadow-md transition-all">
-                    <div className="aspect-video rounded-xl bg-gradient-to-br from-primary-50 to-primary-100 flex items-center justify-center">
-                      <span className="text-6xl font-bold text-primary-200">
-                        Featured
-                      </span>
+                    <div className="aspect-video rounded-xl bg-gray-100 relative overflow-hidden">
+                      <Image
+                        src={featuredPost.image}
+                        alt={featuredPost.title}
+                        fill
+                        className="object-cover transition-transform duration-300 group-hover:scale-105"
+                      />
                     </div>
                     <div>
                       <div className="flex items-center gap-4 mb-4">
@@ -164,8 +168,13 @@ export default function BlogPage() {
                       className="group block h-full"
                     >
                       <div className="h-full p-6 rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-md hover:border-gray-200 transition-all duration-300">
-                        <div className="aspect-video rounded-xl bg-gradient-to-br from-gray-50 to-gray-100 mb-6 flex items-center justify-center">
-                          <Tag className="h-8 w-8 text-primary-300" />
+                        <div className="aspect-video rounded-xl bg-gray-100 mb-6 relative overflow-hidden">
+                          <Image
+                            src={post.image}
+                            alt={post.title}
+                            fill
+                            className="object-cover transition-transform duration-300 group-hover:scale-105"
+                          />
                         </div>
 
                         <div className="flex items-center gap-3 mb-4">
