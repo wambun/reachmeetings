@@ -36,9 +36,9 @@ export default function Footer() {
               <Image
                 src="/logo.png"
                 alt="REACH Meetings & Events"
-                width={140}
-                height={35}
-                className="h-8 w-auto"
+                width={280}
+                height={70}
+                className="h-14 w-auto"
               />
             </Link>
             <p className="mt-4 text-gray-600 text-sm leading-relaxed max-w-sm">

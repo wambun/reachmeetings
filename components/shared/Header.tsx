@@ -38,9 +38,9 @@ export default function Header() {
             <Image
               src="/logo.png"
               alt="REACH Meetings & Events"
-              width={160}
-              height={40}
-              className="h-9 w-auto"
+              width={320}
+              height={80}
+              className="h-16 w-auto"
               priority
             />
           </Link>
