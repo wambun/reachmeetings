@@ -52,7 +52,7 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-medium font-display text-charcoal;
+    @apply font-normal font-display text-charcoal;
     letter-spacing: -0.02em;
   }
 }
@@ -121,27 +121,27 @@
 @layer utilities {
   /* Typography utilities - BIGGER with elegant thin weights */
   .heading-display {
-    @apply text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-medium tracking-tight leading-[1.0];
+    @apply text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-normal tracking-tight leading-[1.0];
     letter-spacing: -0.03em;
   }
 
   .heading-xl {
-    @apply text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-medium tracking-tight leading-[1.05];
+    @apply text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-normal tracking-tight leading-[1.05];
     letter-spacing: -0.02em;
   }
 
   .heading-lg {
-    @apply text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight leading-[1.1];
+    @apply text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight leading-[1.1];
     letter-spacing: -0.02em;
   }
 
   .heading-md {
-    @apply text-2xl sm:text-3xl lg:text-4xl font-medium tracking-tight leading-[1.15];
+    @apply text-2xl sm:text-3xl lg:text-4xl font-normal tracking-tight leading-[1.15];
     letter-spacing: -0.01em;
   }
 
   .heading-sm {
-    @apply text-xl sm:text-2xl lg:text-3xl font-normal tracking-tight leading-[1.2];
+    @apply text-xl sm:text-2xl lg:text-3xl font-light tracking-tight leading-[1.2];
   }
 
   .text-body-lg {
