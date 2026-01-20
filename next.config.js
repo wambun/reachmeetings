@@ -11,6 +11,7 @@ const ContentSecurityPolicy = `
   media-src *.s3.amazonaws.com *.shipixen.com;
   connect-src *;
   font-src 'self';
+  frame-src 'self' https://www.google.com https://maps.google.com https://www.openstreetmap.org;
 `;
 
 const securityHeaders = [
